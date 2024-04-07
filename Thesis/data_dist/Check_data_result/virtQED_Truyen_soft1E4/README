@@ -1,0 +1,19 @@
+Ninh, 10 May 2021:
+
+In this folder, we provide results for the (Virt + Soft) corrections in [micro-barn].
+###### Total results ######
+0000001  # output file with input parameters
+t_inv_plot  # distribution in t
+cos_CM_plot  # distribution in cos_theta defined in the CM frame
+###### Individual corrections (with Soft corrections included) ######
+cos_CM_OnlySoft  # only Soft corrections
+cos_CM_SoftCounter  # Soft and Counter-term corrections
+cos_CM_SoftSelf  # Soft and Self-energy corrections
+cos_CM_SoftVert_e  # Soft and electron-Vertex corrections
+cos_CM_SoftVert_m  # Soft and muon-Vertex corrections
+cos_CM_SoftBox_s  # Soft and s-type Box corrections
+cos_CM_SoftBox_u  # Soft and u-type Box corrections
+
+Note, the definition of Counter-term, Self-energy, Vertex, Box corrections can be 
+seen in the FORM code "NLO_amplitude.frm" in this folder. These individual corrections can 
+be selected using the switch "termNLO" in "NLO_amplitude.frm". 
