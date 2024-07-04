@@ -1,0 +1,167 @@
+dsigmaSoft[
+   cthe_] := -e^2/(16*Pi^3)*(2*alpha^2)/(
+         t[cthe]^2*
+          s[cthe])*(s[cthe]^2/4 + u[cthe]^2/
+           4 + (mmu^2 + mme^2)*t[cthe] - (mmu^2 + mme^2)^2/
+           2)*((2*mmu^2 - 
+              t[cthe])*((-4*Pi*alpha1)/(alpha1^2*mmu^2 - mmu^2)*1/2*
+               Log[alpha1^2*mmu^2/mmu^2]*Log[((2*deltaE)/Lambda)^2] - 
+              2*Pi*alpha1/((alpha1^2*mmu^2 - mmu^2)/(
+                2*(alpha1*EmuCM - EmuCM))*(alpha1*EmuCM - EmuCM))*(1/
+                  4*Log[(EmuCM - ppeCM)/(EmuCM + ppeCM)]^2 + 
+                 PolyLog[2, 
+                  1 - (alpha1*(EmuCM - ppeCM))/((
+                   alpha1^2*mmu^2 - mmu^2)/(
+                   2*(alpha1*EmuCM - EmuCM)))] + 
+                 PolyLog[2, 
+                  1 - (alpha1*(EmuCM + ppeCM))/((
+                   alpha1^2*mmu^2 - mmu^2)/(
+                   2*(alpha1*EmuCM - EmuCM)))] - 
+                 1/4*Log[(EmuCM - ppeCM)/(EmuCM + ppeCM)]^2 - 
+                 PolyLog[2, 
+                  1 - (EmuCM - ppeCM)/((alpha1^2*mmu^2 - mmu^2)/(
+                   2*(alpha1*EmuCM - EmuCM)))] - 
+                 PolyLog[2, 
+                  1 - (EmuCM + ppeCM)/((alpha1^2*mmu^2 - mmu^2)/(
+                   2*(alpha1*EmuCM - EmuCM)))])) + 
+           2*Pi*Log[((2*deltaE)/Lambda)^2] + 
+           2*Pi*EmuCM/ppeCM*Log[(EmuCM - ppeCM)/(EmuCM + ppeCM)] + 
+           2*Pi*Log[((2*deltaE)/Lambda)^2] + 
+           2*Pi*EmuCM/ppeCM*
+            Log[(EmuCM - ppeCM)/(
+             EmuCM + ppeCM)] + (2*mme^2 - 
+              t[cthe])*((-4*Pi*alpha2)/(alpha2^2*mme^2 - mme^2)*1/2*
+               Log[alpha2^2*mme^2/mme^2]*Log[((2*deltaE)/Lambda)^2] - 
+              2*Pi*alpha2/((alpha2^2*mme^2 - mme^2)/(
+                2*(alpha2*EeCM - EeCM))*(alpha2*EeCM - EeCM))*(1/4*
+                  Log[(EeCM - ppeCM)/(EeCM + ppeCM)]^2 + 
+                 PolyLog[2, 
+                  1 - (alpha2*(EeCM - ppeCM))/((
+                   alpha2^2*mme^2 - mme^2)/(
+                   2*(alpha2*EeCM - EeCM)))] + 
+                 PolyLog[2, 
+                  1 - (alpha2*(EeCM + ppeCM))/((
+                   alpha2^2*mme^2 - mme^2)/(
+                   2*(alpha2*EeCM - EeCM)))] - 
+                 1/4*Log[(EeCM - ppeCM)/(EeCM + ppeCM)]^2 - 
+                 PolyLog[2, 
+                  1 - (EeCM - ppeCM)/((alpha2^2*mme^2 - mme^2)/(
+                   2*(alpha2*EeCM - EeCM)))] - 
+                 PolyLog[2, 
+                  1 - (EeCM + ppeCM)/((alpha2^2*mme^2 - mme^2)/(
+                   2*(alpha2*EeCM - EeCM)))])) + 
+           2*Pi*Log[((2*deltaE)/Lambda)^2] + 
+           2*Pi*EeCM/ppeCM*Log[(EeCM - ppeCM)/(EeCM + ppeCM)] + 
+           2*Pi*Log[((2*deltaE)/Lambda)^2] + 
+           2*Pi*EeCM/ppeCM*
+            Log[(EeCM - ppeCM)/(
+             
+             EeCM + ppeCM)] + (s[cthe] - mme^2 - 
+              mmu^2)*((-4*Pi*alpha3)/(alpha3^2*mme^2 - mmu^2)*1/2*
+               Log[alpha3^2*mme^2/mmu^2]*Log[((2*deltaE)/Lambda)^2] - 
+              2*Pi*alpha3/((alpha3^2*mme^2 - mmu^2)/(
+                2*(-alpha3*EeCM - EmuCM))*(-alpha3*EeCM - EmuCM))*(1/
+                  4*Log[(-alpha3*EeCM - 
+                    Abs[alpha3]*ppeCM)/(-alpha3*EeCM + 
+                    Abs[alpha3]*ppeCM)]^2 + 
+                 PolyLog[2, 
+                  1 - (-alpha3*EeCM - Abs[alpha3]*ppeCM)/((
+                   alpha3^2*mme^2 - mmu^2)/(
+                   2*(-alpha3*EeCM - EmuCM)))] + 
+                 PolyLog[2, 
+                  1 - (-alpha3*EeCM + Abs[alpha3]*ppeCM)/((
+                   alpha3^2*mme^2 - mmu^2)/(
+                   2*(-alpha3*EeCM - EmuCM)))] - 
+                 1/4*Log[(EmuCM - ppeCM)/(EmuCM + ppeCM)]^2 - 
+                 PolyLog[2, 
+                  1 - (EmuCM - ppeCM)/((alpha3^2*mme^2 - mmu^2)/(
+                   2*(-alpha3*EeCM - EmuCM)))] - 
+                 PolyLog[2, 
+                  1 - (EmuCM + ppeCM)/((alpha3^2*mme^2 - mmu^2)/(
+                   2*(-alpha3*EeCM - EmuCM)))])) + (s[cthe] - mme^2 - 
+              mmu^2)*((-4*Pi*alpha4)/(alpha4^2*mmu^2 - mme^2)*1/2*
+               Log[alpha4^2*mmu^2/mme^2]*Log[((2*deltaE)/Lambda)^2] - 
+              2*Pi*alpha4/((alpha4^2*mmu^2 - mme^2)/(
+                
+                2*(alpha4*EmuCM + EmuCM))*(alpha4*EmuCM + EeCM))*(1/4*
+                  Log[(alpha4*EmuCM - Abs[alpha4] ppeCM)/(
+                   alpha4*EmuCM + Abs[alpha4] ppeCM)]^2 + 
+                 PolyLog[2, 
+                  1 - (alpha4*EmuCM - Abs[alpha4]*ppeCM)/((
+                   alpha4^2*mmu^2 - mme^2)/(
+                   2*(alpha4*EmuCM + EeCM)))] + 
+                 PolyLog[2, 
+                  1 - (alpha4*EmuCM + Abs[alpha4]*ppeCM)/((
+                   alpha4^2*mmu^2 - mme^2)/(
+                   2*(alpha4*EmuCM + EeCM)))] - 
+                 1/4*Log[(-EeCM - ppeCM)/(-EeCM + ppeCM)]^2 - 
+                 PolyLog[2, 
+                  1 - (-EeCM - ppeCM)/((alpha4^2*mmu^2 - mme^2)/(
+                   2*(alpha4*EmuCM + EeCM)))] - 
+                 PolyLog[2, 
+                  1 - (-EeCM + ppeCM)/((alpha4^2*mmu^2 - mme^2)/(
+                   2*(alpha4*EmuCM + EeCM)))])) + (mme^2 + mmu^2 - 
+              u[cthe])*((-4*Pi*alpha5)/(alpha5^2*mme^2 - mmu^2)*1/2*
+               Log[alpha5^2*mme^2/mmu^2]*Log[((2*deltaE)/Lambda)^2] - 
+              2*Pi*alpha5/((alpha5^2*mme^2 - mmu^2)/(
+                2*(alpha5*EeCM - EmuCM))*(alpha5*EeCM - EmuCM))*(1/4*
+                  Log[(alpha5*EeCM - Abs[alpha5]*ppeCM)/(
+                   alpha5*EeCM + Abs[alpha5] ppeCM)]^2 + 
+                 PolyLog[2, 
+                  1 - (alpha5*EeCM - Abs[alpha5]*ppeCM)/((
+                   alpha5^2*mme^2 - mmu^2)/(
+                   2*(alpha5*EeCM - EmuCM)))] + 
+                 PolyLog[2, 
+                  1 - (alpha5*EeCM + Abs[alpha5] ppeCM)/((
+                   alpha5^2*mme^2 - mmu^2)/(
+                   2*(alpha5*EeCM - EmuCM)))] - 
+                 1/4*Log[(EmuCM - ppeCM)/(EmuCM + ppeCM)]^2 - 
+                 PolyLog[2, 
+                  1 - (EmuCM - ppeCM)/((alpha5^2*mme^2 - mmu^2)/(
+                   2*(alpha5*EeCM - EmuCM)))] - 
+                 PolyLog[2, 
+                  1 - (EmuCM + ppeCM)/((alpha5^2*mme^2 - mmu^2)/(
+                   2*(alpha5*EeCM - EmuCM)))])) + (mme^2 + mmu^2 - 
+              u[cthe])*((-4*Pi*alpha6)/(alpha6^2*mmu^2 - mme^2)*1/2*
+               Log[alpha6^2*mmu^2/mme^2]*Log[((2*deltaE)/Lambda)^2] - 
+              2*Pi*alpha6/((alpha6^2*mmu^2 - mme^2)/(
+                2*(alpha6*EmuCM - EeCM))*(alpha6*EmuCM - EeCM))*(1/4*
+                  Log[(alpha6*EmuCM - Abs[alpha6]*ppeCM)/(
+                   alpha6*EmuCM + Abs[alpha6]*ppeCM)]^2 + 
+                 PolyLog[2, 
+                  1 - (alpha6*EmuCM - Abs[alpha6]*ppeCM)/((
+                   alpha6^2*mmu^2 - mme^2)/(
+                   2*(alpha6*EmuCM - EeCM)))] + 
+                 PolyLog[2, 
+                  1 - (alpha6*EmuCM + Abs[alpha6]*ppeCM)/((
+                   alpha6^2*mmu^2 - mme^2)/(
+                   2*(alpha6*EmuCM - EeCM)))] - 
+                 1/4*Log[(EeCM - ppeCM)/(EeCM + ppeCM)]^2 - 
+                 
+                 PolyLog[2, 
+                  1 - (EeCM - ppeCM)/((alpha6^2*mmu^2 - mme^2)/(
+                   2*(alpha6*EmuCM - EeCM)))] - 
+                 PolyLog[2, 
+                  1 - (EeCM + ppeCM)/((alpha6^2*mmu^2 - mme^2)/(
+                   2*(alpha6*EmuCM - EeCM)))]))) /. 
+        Solve[{alpha1^2*mmu^2 + mmu^2 + alpha1*(t[cthe] - 2*mmu^2) == 
+           0, (alpha1*EmuCM - EmuCM) > 0}, alpha1] /. 
+       Solve[{alpha2^2*mme^2 + mme^2 + alpha2*(t[cthe] - 2*mme^2) == 
+          0, (alpha2*EeCM - EeCM) > 0}, alpha2] /. 
+      Solve[{alpha3^2*mme^2 + mmu^2 + 
+          alpha3*(s[cthe] - mme^2 - mmu^2) == 
+         0, (-alpha3*EeCM - EmuCM) > 0}, alpha3] /. 
+     Solve[{alpha4^2*mmu^2 + mme^2 + 
+         alpha4*(s[cthe] - mme^2 - mmu^2) == 
+        0, (alpha4*EmuCM + EeCM) < 0}, alpha4] /. 
+    Solve[{alpha5^2*mme^2 + mmu^2 + 
+        alpha5*(u[cthe] - mme^2 - mmu^2) == 
+       0, (alpha5*EeCM - EmuCM) > 0}, alpha5] /. 
+   Solve[{alpha6^2*mmu^2 + mme^2 + 
+       alpha6*(u[cthe] - mme^2 - mmu^2) == 0, (alpha6*EmuCM - EeCM) > 
+      0}, alpha6];
+
+
+
+
+

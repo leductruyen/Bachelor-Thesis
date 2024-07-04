@@ -1,0 +1,413 @@
+FORM 4.2.1 (Thg 8 28 2019, v4.2.1-5-g4057c65) 64-bits  Run: Wed Sep  8 18:09:20 2021
+    *
+    *******************************                L.D Truyen 12/7/2020             
+          *******************************************                          
+    *
+    ********************************************************************************
+    ***********************************************
+    *************************************************   DECLARE   ******************
+    *****************************************************
+    ********************************************************************************
+    ***********************************************
+    *  Parameters and Mandelstam variable
+    Symbols t,s,u,e,mme,mmu,g,cW,mW,gV,mZ,mH;
+    *  Particles momentum
+    vector q,k,k1,p,p1;
+    *  Dirac spinor
+    function U,V;
+    Cfunction Ubar,Vbar,
+    *  Particles mass
+     m;
+    *  Tensor index
+    indices i,j,mu,nu,rho,sigma;
+    *
+    ********************************************************************************
+    ***********************************************
+    **************************************  Feynman Amplitude   ********************
+    ****************************************************
+    ********************************************************************************
+    ************************************************
+    ********************
+    *   Amplitude
+    ********************
+    local [M1]=
+    *  Photon diagram
+    i_*e^2*Ubar(1,k1)*g_(1,mu)*U(1,k)*d_(mu,nu)/t*Ubar(2,p1)*g_(2,nu)*U(2,p)+
+    *  Z boson diagram
+    Ubar(1,k1)*(i_*g/cW*g_(1,mu)*(gV+1/4*g5_(1)))*U(1,k)*(-i_*(d_(mu,nu))/(t-mZ^2))*
+    Ubar(2,p1)*(i_*g/cW*g_(2,nu)*(gV+1/4*g5_(2)))*U(2,p)+
+    Ubar(1,k1)*(i_*g/cW*g_(1,mu)*(gV+1/4*g5_(1)))*U(1,k)*(-i_*(-q(mu)*q(nu)/mZ^2)/(t
+    -mZ^2))*Ubar(2,p1)*(i_*g/cW*g_(2,nu)*(gV+1/4*g5_(2)))*U(2,p);
+    *  Higgs diagram
+    *Ubar(1,k1)*(-i_*g/2*mme/mW)*U(1,k)*i_/(t-mH^2)*Ubar(2,p1)*(-i_*g/2*mmu/mW)*U(2,
+    p);
+    *  Goldstone diagram
+    *  Ubar(1,k1)*(g/2*mme/mW*g5_(1))*U(1,k)*i_/(t-mZ^2)*Ubar(2,p1)*(g/2*mmu/mW*g5_(
+    2))*U(2,p);
+    *************************
+    *  Amplitude conjugate
+    *************************
+    local [M1*] = 
+    *  Photon diagram
+    -i_*e^2*Ubar(1,k)*g_(1,rho)*U(1,k1)*d_(rho,sigma)/t*Ubar(2,p)*g_(2,sigma)*U(2,p1
+    )+
+    *  Z boson diagram
+    Ubar(1,k)*(-i_*g/cW*g_(1,rho)*(gV+1/4*g5_(1)))*U(1,k1)*(i_*(d_(rho,sigma))/(t-mZ
+    ^2))*Ubar(2,p)*(-i_*g/cW*g_(2,sigma)*(gV+1/4*g5_(2)))*U(2,p1)+
+    Ubar(1,k)*(-i_*g/cW*g_(1,rho)*(gV+1/4*g5_(1)))*U(1,k1)*(i_*(-q(rho)*q(sigma)/mZ^
+    2)/(t-mZ^2))*Ubar(2,p)*(-i_*g/cW*g_(2,sigma)*(gV+1/4*g5_(2)))*U(2,p1);
+    *  Higgs diagram
+    *Ubar(1,k)*(i_*g/2*mme/mW)*U(1,k1)*(-i_/(t-mH^2))*Ubar(2,p)*(i_*g/2*mmu/mW)*U(2,
+    p1);
+    *  Goldstone diagram
+    *  Ubar(1,k)*(-g/2*mme/mW*g5_(1))*U(1,k1)*(-i_/(t-mZ^2))*Ubar(2,p)*(-g/2*mmu/mW*
+    g5_(2))*U(2,p1);
+    *************************
+    *  Square Amplitude
+    *************************
+    local [M^2]=1/4*[M1]*[M1*];
+    bracket t;
+    print;
+    .sort 
+
+Time =       0.00 sec    Generated terms =          9
+            [M1]         Terms in output =          9
+                         Bytes used      =       2068
+
+Time =       0.00 sec    Generated terms =          9
+           [M1*]         Terms in output =          9
+                         Bytes used      =       2068
+
+Time =       0.00 sec    Generated terms =         81
+           [M^2]         Terms in output =         81
+                         Bytes used      =      24652
+
+   [M1] =
+       + t^-1 * ( g_(1,nu)*U(1,k)*g_(2,nu)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*i_*e^2
+          )
+
+       - g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*i_*
+      g^2*cW^-2*gV^2*mZ^-2 + 1/4*g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p
+         )*Ubar(1,k1)*Ubar(2,p1)*i_*g^2*cW^-2*gV*mZ^-2 + 1/4*g_(1,5_,q)*U(1,k)
+         /( - mZ^2 + t)*g_(2,q)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*i_*g^2*cW^-2*gV*
+         mZ^-2 - 1/16*g_(1,5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p)*Ubar(1
+         ,k1)*Ubar(2,p1)*i_*g^2*cW^-2*mZ^-2 + 1/16*g_(1,5_,nu)*U(1,k)/( - mZ^2
+          + t)*g_(2,5_,nu)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*i_*g^2*cW^-2 - 1/4*g_(
+         1,5_,nu)*U(1,k)/( - mZ^2 + t)*g_(2,nu)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*
+         i_*g^2*cW^-2*gV - 1/4*g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,5_,nu)*U(2,p
+         )*Ubar(1,k1)*Ubar(2,p1)*i_*g^2*cW^-2*gV + g_(1,nu)*U(1,k)/( - mZ^2 + 
+         t)*g_(2,nu)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*i_*g^2*cW^-2*gV^2;
+
+   [M1*] =
+       + t^-1 * (  - g_(1,sigma)*U(1,k1)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(2,
+         p)*i_*e^2 )
+
+       + g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*Ubar(2,p)*i_*
+      g^2*cW^-2*gV^2*mZ^-2 - 1/4*g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,q)*U(2,
+         p1)*Ubar(1,k)*Ubar(2,p)*i_*g^2*cW^-2*gV*mZ^-2 - 1/4*g_(1,5_,q)*U(1,k1
+         )/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*Ubar(2,p)*i_*g^2*cW^-2*gV*
+         mZ^-2 + 1/16*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p1)*
+         Ubar(1,k)*Ubar(2,p)*i_*g^2*cW^-2*mZ^-2 - 1/16*g_(1,5_,sigma)*U(1,k1)
+         /( - mZ^2 + t)*g_(2,5_,sigma)*U(2,p1)*Ubar(1,k)*Ubar(2,p)*i_*g^2*
+         cW^-2 + 1/4*g_(1,5_,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,sigma)*U(2,p1)*
+         Ubar(1,k)*Ubar(2,p)*i_*g^2*cW^-2*gV + 1/4*g_(1,sigma)*U(1,k1)/( - 
+         mZ^2 + t)*g_(2,5_,sigma)*U(2,p1)*Ubar(1,k)*Ubar(2,p)*i_*g^2*cW^-2*gV
+          - g_(1,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*
+         Ubar(2,p)*i_*g^2*cW^-2*gV^2;
+
+   [M^2] =
+       + t^-2 * ( 1/4*g_(1,nu)*U(1,k)*g_(2,nu)*U(2,p)*g_(1,sigma)*U(1,k1)*g_(2
+         ,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^4 )
+
+       + t^-1 * (  - 1/4*g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,
+         sigma)*U(1,k1)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*
+         Ubar(2,p1)*e^2*g^2*cW^-2*gV^2*mZ^-2 + 1/16*g_(1,q)*U(1,k)/( - mZ^2 + 
+         t)*g_(2,5_,q)*U(2,p)*g_(1,sigma)*U(1,k1)*g_(2,sigma)*U(2,p1)*Ubar(1,k
+         )*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^2*g^2*cW^-2*gV*mZ^-2 + 1/16*g_(1,
+         5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,sigma)*U(1,k1)*g_(2,
+         sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^2*g^2*
+         cW^-2*gV*mZ^-2 - 1/64*g_(1,5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,
+         p)*g_(1,sigma)*U(1,k1)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(
+         2,p)*Ubar(2,p1)*e^2*g^2*cW^-2*mZ^-2 + 1/64*g_(1,5_,nu)*U(1,k)/( - 
+         mZ^2 + t)*g_(2,5_,nu)*U(2,p)*g_(1,sigma)*U(1,k1)*g_(2,sigma)*U(2,p1)*
+         Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^2*g^2*cW^-2 - 1/16*g_(1,
+         5_,nu)*U(1,k)/( - mZ^2 + t)*g_(2,nu)*U(2,p)*g_(1,sigma)*U(1,k1)*g_(2,
+         sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^2*g^2*
+         cW^-2*gV - 1/16*g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,5_,nu)*U(2,p)*g_(1
+         ,sigma)*U(1,k1)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*
+         Ubar(2,p1)*e^2*g^2*cW^-2*gV + 1/4*g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,
+         nu)*U(2,p)*g_(1,sigma)*U(1,k1)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,
+         k1)*Ubar(2,p)*Ubar(2,p1)*e^2*g^2*cW^-2*gV^2 - 1/4*g_(1,nu)*U(1,k)*g_(
+         2,nu)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*
+         Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^2*g^2*cW^-2*gV^2*mZ^-2 + 1/16*g_(1,
+         nu)*U(1,k)*g_(2,nu)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,q)*
+         U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^2*g^2*cW^-2*gV*
+         mZ^-2 + 1/16*g_(1,nu)*U(1,k)*g_(2,nu)*U(2,p)*g_(1,5_,q)*U(1,k1)/( - 
+         mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*
+         e^2*g^2*cW^-2*gV*mZ^-2 - 1/64*g_(1,nu)*U(1,k)*g_(2,nu)*U(2,p)*g_(1,5_
+         ,q)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*
+         Ubar(2,p)*Ubar(2,p1)*e^2*g^2*cW^-2*mZ^-2 + 1/64*g_(1,nu)*U(1,k)*g_(2,
+         nu)*U(2,p)*g_(1,5_,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(2,p1
+         )*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^2*g^2*cW^-2 - 1/16*g_(1
+         ,nu)*U(1,k)*g_(2,nu)*U(2,p)*g_(1,5_,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2
+         ,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^2*g^2*
+         cW^-2*gV - 1/16*g_(1,nu)*U(1,k)*g_(2,nu)*U(2,p)*g_(1,sigma)*U(1,k1)/(
+          - mZ^2 + t)*g_(2,5_,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*
+         Ubar(2,p1)*e^2*g^2*cW^-2*gV + 1/4*g_(1,nu)*U(1,k)*g_(2,nu)*U(2,p)*g_(
+         1,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,
+         k1)*Ubar(2,p)*Ubar(2,p1)*e^2*g^2*cW^-2*gV^2 )
+
+       + 1/4*g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,q)*U(1,k1)/( - 
+      mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*
+      cW^-4*gV^4*mZ^-4 - 1/16*g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1
+         ,q)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*
+         Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^3*mZ^-4 - 1/16*g_(1,q)*U(1,k)/( - 
+         mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2
+         ,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^3*mZ^-4
+          + 1/64*g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,5_,q)*U(1,k1
+         )/( - mZ^2 + t)*g_(2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*
+         Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-4 - 1/64*g_(1,q)*U(1,k)/( - mZ^2 + t)*
+         g_(2,q)*U(2,p)*g_(1,5_,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(
+         2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-2
+          + 1/16*g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,5_,sigma)*U(
+         1,k1)/( - mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p
+         )*Ubar(2,p1)*g^4*cW^-4*gV^3*mZ^-2 + 1/16*g_(1,q)*U(1,k)/( - mZ^2 + t)
+         *g_(2,q)*U(2,p)*g_(1,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(2,
+         p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^3*mZ^-2 - 
+         1/4*g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,sigma)*U(1,k1)/(
+          - mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(
+         2,p1)*g^4*cW^-4*gV^4*mZ^-2 - 1/16*g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,
+         5_,q)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*
+         Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^3*mZ^-4 + 1/64*g_(1,q)*
+         U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*
+         g_(2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*
+         cW^-4*gV^2*mZ^-4 + 1/64*g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p
+         )*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*Ubar(1,
+         k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-4 - 1/256*g_(1,q)*U(1,k)
+         /( - mZ^2 + t)*g_(2,5_,q)*U(2,p)*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(
+         2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*
+         gV*mZ^-4 + 1/256*g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p)*g_(1,
+         5_,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(2,p1)*Ubar(1,k)*
+         Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV*mZ^-2 - 1/64*g_(1,q)*U(1
+         ,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p)*g_(1,5_,sigma)*U(1,k1)/( - mZ^2
+          + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*
+         g^4*cW^-4*gV^2*mZ^-2 - 1/64*g_(1,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*
+         U(2,p)*g_(1,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(2,p1)*Ubar(
+         1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-2 + 1/16*g_(1
+         ,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p)*g_(1,sigma)*U(1,k1)/( - 
+         mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,
+         p1)*g^4*cW^-4*gV^3*mZ^-2 - 1/16*g_(1,5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,
+         q)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*
+         Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^3*mZ^-4 + 1/64*g_(1,5_,q
+         )*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*
+         g_(2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*
+         cW^-4*gV^2*mZ^-4 + 1/64*g_(1,5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p
+         )*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*Ubar(1,
+         k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-4 - 1/256*g_(1,5_,q)*U(1,
+         k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(2
+         ,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV
+         *mZ^-4 + 1/256*g_(1,5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,5_
+         ,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1
+         ,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV*mZ^-2 - 1/64*g_(1,5_,q)*U(1,k)
+         /( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,5_,sigma)*U(1,k1)/( - mZ^2 + t)*
+         g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*
+         cW^-4*gV^2*mZ^-2 - 1/64*g_(1,5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p
+         )*g_(1,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(2,p1)*Ubar(1,k)*
+         Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-2 + 1/16*g_(1,5_,q
+         )*U(1,k)/( - mZ^2 + t)*g_(2,q)*U(2,p)*g_(1,sigma)*U(1,k1)/( - mZ^2 + 
+         t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*
+         cW^-4*gV^3*mZ^-2 + 1/64*g_(1,5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(
+         2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*Ubar(1,
+         k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-4 - 1/256*g_(1,5_,q)*U(1,
+         k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2
+         ,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV
+         *mZ^-4 - 1/256*g_(1,5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p)*g_(1
+         ,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*
+         Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV*mZ^-4 + 1/1024*g_(1,5_,q)*U(1,k)/(
+          - mZ^2 + t)*g_(2,5_,q)*U(2,p)*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(2,
+         5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*
+         mZ^-4 - 1/1024*g_(1,5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p)*g_(1
+         ,5_,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(2,p1)*Ubar(1,k)*
+         Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*mZ^-2 + 1/256*g_(1,5_,q)*U(
+         1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p)*g_(1,5_,sigma)*U(1,k1)/( - mZ^2
+          + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*
+         g^4*cW^-4*gV*mZ^-2 + 1/256*g_(1,5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)
+         *U(2,p)*g_(1,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(2,p1)*
+         Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV*mZ^-2 - 1/64*
+         g_(1,5_,q)*U(1,k)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p)*g_(1,sigma)*U(1,k1)
+         /( - mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*
+         Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-2 - 1/64*g_(1,5_,nu)*U(1,k)/( - mZ^2 + 
+         t)*g_(2,5_,nu)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*
+         Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-2 + 1/
+         256*g_(1,5_,nu)*U(1,k)/( - mZ^2 + t)*g_(2,5_,nu)*U(2,p)*g_(1,q)*U(1,
+         k1)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*
+         Ubar(2,p1)*g^4*cW^-4*gV*mZ^-2 + 1/256*g_(1,5_,nu)*U(1,k)/( - mZ^2 + t
+         )*g_(2,5_,nu)*U(2,p)*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)
+         *Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV*mZ^-2 - 1/
+         1024*g_(1,5_,nu)*U(1,k)/( - mZ^2 + t)*g_(2,5_,nu)*U(2,p)*g_(1,5_,q)*
+         U(1,k1)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,
+         p)*Ubar(2,p1)*g^4*cW^-4*mZ^-2 + 1/1024*g_(1,5_,nu)*U(1,k)/( - mZ^2 + 
+         t)*g_(2,5_,nu)*U(2,p)*g_(1,5_,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,
+         sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4 - 
+         1/256*g_(1,5_,nu)*U(1,k)/( - mZ^2 + t)*g_(2,5_,nu)*U(2,p)*g_(1,5_,
+         sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)
+         *Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV - 1/256*g_(1,5_,nu)*U(1,k)/( - 
+         mZ^2 + t)*g_(2,5_,nu)*U(2,p)*g_(1,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,
+         5_,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4
+         *gV + 1/64*g_(1,5_,nu)*U(1,k)/( - mZ^2 + t)*g_(2,5_,nu)*U(2,p)*g_(1,
+         sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)
+         *Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2 + 1/16*g_(1,5_,nu)*U(1,k)/( - 
+         mZ^2 + t)*g_(2,nu)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,
+         p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^3*mZ^-2 - 
+         1/64*g_(1,5_,nu)*U(1,k)/( - mZ^2 + t)*g_(2,nu)*U(2,p)*g_(1,q)*U(1,k1)
+         /( - mZ^2 + t)*g_(2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*
+         Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-2 - 1/64*g_(1,5_,nu)*U(1,k)/( - mZ^2 + 
+         t)*g_(2,nu)*U(2,p)*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*
+         Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-2 + 1/
+         256*g_(1,5_,nu)*U(1,k)/( - mZ^2 + t)*g_(2,nu)*U(2,p)*g_(1,5_,q)*U(1,
+         k1)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*
+         Ubar(2,p1)*g^4*cW^-4*gV*mZ^-2 - 1/256*g_(1,5_,nu)*U(1,k)/( - mZ^2 + t
+         )*g_(2,nu)*U(2,p)*g_(1,5_,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)
+         *U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV + 1/
+         64*g_(1,5_,nu)*U(1,k)/( - mZ^2 + t)*g_(2,nu)*U(2,p)*g_(1,5_,sigma)*U(
+         1,k1)/( - mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p
+         )*Ubar(2,p1)*g^4*cW^-4*gV^2 + 1/64*g_(1,5_,nu)*U(1,k)/( - mZ^2 + t)*
+         g_(2,nu)*U(2,p)*g_(1,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(2,
+         p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2 - 1/16*
+         g_(1,5_,nu)*U(1,k)/( - mZ^2 + t)*g_(2,nu)*U(2,p)*g_(1,sigma)*U(1,k1)
+         /( - mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*
+         Ubar(2,p1)*g^4*cW^-4*gV^3 + 1/16*g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,
+         5_,nu)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)
+         *Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^3*mZ^-2 - 1/64*g_(1,nu)
+         *U(1,k)/( - mZ^2 + t)*g_(2,5_,nu)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t
+         )*g_(2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*
+         cW^-4*gV^2*mZ^-2 - 1/64*g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,5_,nu)*U(2
+         ,p)*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*Ubar(1
+         ,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-2 + 1/256*g_(1,nu)*U(1,k
+         )/( - mZ^2 + t)*g_(2,5_,nu)*U(2,p)*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*
+         g_(2,5_,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*
+         cW^-4*gV*mZ^-2 - 1/256*g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,5_,nu)*U(2,
+         p)*g_(1,5_,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(2,p1)*Ubar(1
+         ,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV + 1/64*g_(1,nu)*U(1,
+         k)/( - mZ^2 + t)*g_(2,5_,nu)*U(2,p)*g_(1,5_,sigma)*U(1,k1)/( - mZ^2
+          + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*
+         g^4*cW^-4*gV^2 + 1/64*g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,5_,nu)*U(2,p
+         )*g_(1,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,sigma)*U(2,p1)*Ubar(1,k)*
+         Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2 - 1/16*g_(1,nu)*U(1,k)
+         /( - mZ^2 + t)*g_(2,5_,nu)*U(2,p)*g_(1,sigma)*U(1,k1)/( - mZ^2 + t)*
+         g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*
+         cW^-4*gV^3 - 1/4*g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,nu)*U(2,p)*g_(1,q
+         )*U(1,k1)/( - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p
+         )*Ubar(2,p1)*g^4*cW^-4*gV^4*mZ^-2 + 1/16*g_(1,nu)*U(1,k)/( - mZ^2 + t
+         )*g_(2,nu)*U(2,p)*g_(1,q)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p1)*
+         Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^3*mZ^-2 + 1/16
+         *g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,nu)*U(2,p)*g_(1,5_,q)*U(1,k1)/(
+          - mZ^2 + t)*g_(2,q)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1
+         )*g^4*cW^-4*gV^3*mZ^-2 - 1/64*g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,nu)*
+         U(2,p)*g_(1,5_,q)*U(1,k1)/( - mZ^2 + t)*g_(2,5_,q)*U(2,p1)*Ubar(1,k)*
+         Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^2*mZ^-2 + 1/64*g_(1,nu)*
+         U(1,k)/( - mZ^2 + t)*g_(2,nu)*U(2,p)*g_(1,5_,sigma)*U(1,k1)/( - mZ^2
+          + t)*g_(2,5_,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1
+         )*g^4*cW^-4*gV^2 - 1/16*g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,nu)*U(2,p)
+         *g_(1,5_,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*
+         Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^3 - 1/16*g_(1,nu)*U(1,k)
+         /( - mZ^2 + t)*g_(2,nu)*U(2,p)*g_(1,sigma)*U(1,k1)/( - mZ^2 + t)*g_(2
+         ,5_,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*g^4*
+         cW^-4*gV^3 + 1/4*g_(1,nu)*U(1,k)/( - mZ^2 + t)*g_(2,nu)*U(2,p)*g_(1,
+         sigma)*U(1,k1)/( - mZ^2 + t)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)
+         *Ubar(2,p)*Ubar(2,p1)*g^4*cW^-4*gV^4;
+
+    *************************
+    *     identities        *
+    *************************
+    *  Dirac equation  
+    id U(i?,k?)*Ubar(i?,k?)=(g_(i,k)+m(k)*gi_(i));
+    id V(i?,k?)*Vbar(i?,k?)=(g_(i,k)-m(k)*gi_(i));
+    *  mass identification
+    id m(k?{k,k1})=mme;
+    id m(k?{p,p1})=mmu;
+    ******   Trace calculation   **********
+    Trace4,1;
+    Trace4,2;
+    ***************************************
+    *       Mandelstam variables          *
+    id q.q = t;
+    id k1.k = mme^2-t/2;
+    id p1.p = mmu^2-t/2;
+    id k.p = (s-mmu^2-mme^2)/2;
+    id k1.p1 = (s-mmu^2-mme^2)/2;
+    id k.p1 = (mmu^2+mme^2-u)/2;
+    id k1.p = (mmu^2+mme^2-u)/2;
+    id q.k = -t/2;
+    id q.k1 = t/2;
+    id q.p = t/2;
+    id q.p1 = -t/2;
+    id s=2*mmu^2+2*mme^2-t-u;
+    *id cW^(-1) = mZ/mW;
+    *
+    *****   export result  *******
+    *
+    bracket t;
+    format mathematica;
+    print [M^2];
+    .end  
+
+Time =       0.00 sec    Generated terms =          0
+            [M1]         Terms in output =          0
+                         Bytes used      =          4
+
+Time =       0.00 sec    Generated terms =          0
+           [M1*]         Terms in output =          0
+                         Bytes used      =          4
+
+Time =       0.01 sec    Generated terms =       3701
+           [M^2]         Terms in output =         50
+                         Bytes used      =       3116
+
+   [M^2] =
+       + t^(-2) * ( 4*e^4*mmu^4 + 8*e^4*mme^2*mmu^2 + 4*e^4*mme^4 - 8*u
+         *e^4*mmu^2 - 8*u*e^4*mme^2 + 4*u^2*e^4 )
+
+       + t^(-1) * ( 4*u*e^4 + 8/( - mZ^2 + t)*e^2*mmu^4*g^2*cW^(-2)*
+         gV^2 + 16/( - mZ^2 + t)*e^2*mme^2*mmu^2*g^2*cW^(-2)*gV^2 + 8/(
+          - mZ^2 + t)*e^2*mme^4*g^2*cW^(-2)*gV^2 - 16/( - mZ^2 + t)*u*
+         e^2*mmu^2*g^2*cW^(-2)*gV^2 - 16/( - mZ^2 + t)*u*e^2*mme^2*g^2*
+         cW^(-2)*gV^2 + 8/( - mZ^2 + t)*u^2*e^2*g^2*cW^(-2)*gV^2 )
+
+       + t * ( 1/4/( - mZ^2 + t)*e^2*g^2*cW^(-2) + 4/( - mZ^2 + t)*e^2*
+         g^2*cW^(-2)*gV^2 - 1/32/( - mZ^2 + t)/( - mZ^2 + t)*mmu^2*g^4*
+         cW^(-4) - 3/2/( - mZ^2 + t)/( - mZ^2 + t)*mmu^2*g^4*cW^(-4)*
+         gV^2 - 1/32/( - mZ^2 + t)/( - mZ^2 + t)*mme^2*g^4*cW^(-4) - 3/
+         2/( - mZ^2 + t)/( - mZ^2 + t)*mme^2*g^4*cW^(-4)*gV^2 - 1/8/(
+          - mZ^2 + t)/( - mZ^2 + t)*mme^2*mmu^2*g^4*cW^(-4)*mZ^(-2) + 1/
+         64/( - mZ^2 + t)/( - mZ^2 + t)*u*g^4*cW^(-4) + 3/2/( - mZ^2 + 
+         t)/( - mZ^2 + t)*u*g^4*cW^(-4)*gV^2 + 4/( - mZ^2 + t)/( - mZ^2
+          + t)*u*g^4*cW^(-4)*gV^4 )
+
+       + t^2 * ( 1/128/( - mZ^2 + t)/( - mZ^2 + t)*g^4*cW^(-4) + 3/4/(
+          - mZ^2 + t)/( - mZ^2 + t)*g^4*cW^(-4)*gV^2 + 2/( - mZ^2 + t)
+         /( - mZ^2 + t)*g^4*cW^(-4)*gV^4 + 1/16/( - mZ^2 + t)/( - mZ^2
+          + t)*mme^2*mmu^2*g^4*cW^(-4)*mZ^(-4) )
+
+       + 2*e^4 - 1/2/( - mZ^2 + t)*e^2*mmu^2*g^2*cW^(-2) - 1/2/( - mZ^2
+          + t)*e^2*mme^2*g^2*cW^(-2) + 1/2/( - mZ^2 + t)*u*e^2*g^2*
+         cW^(-2) + 8/( - mZ^2 + t)*u*e^2*g^2*cW^(-2)*gV^2 + 1/64/( - 
+         mZ^2 + t)/( - mZ^2 + t)*mmu^4*g^4*cW^(-4) + 1/2/( - mZ^2 + t)
+         /( - mZ^2 + t)*mmu^4*g^4*cW^(-4)*gV^2 + 4/( - mZ^2 + t)/( - 
+         mZ^2 + t)*mmu^4*g^4*cW^(-4)*gV^4 + 5/32/( - mZ^2 + t)/( - mZ^2
+          + t)*mme^2*mmu^2*g^4*cW^(-4) - 1/( - mZ^2 + t)/( - mZ^2 + t)*
+         mme^2*mmu^2*g^4*cW^(-4)*gV^2 + 8/( - mZ^2 + t)/( - mZ^2 + t)*
+         mme^2*mmu^2*g^4*cW^(-4)*gV^4 + 1/64/( - mZ^2 + t)/( - mZ^2 + t
+         )*mme^4*g^4*cW^(-4) + 1/2/( - mZ^2 + t)/( - mZ^2 + t)*mme^4*
+         g^4*cW^(-4)*gV^2 + 4/( - mZ^2 + t)/( - mZ^2 + t)*mme^4*g^4*
+         cW^(-4)*gV^4 - 1/32/( - mZ^2 + t)/( - mZ^2 + t)*u*mmu^2*g^4*
+         cW^(-4) - 1/( - mZ^2 + t)/( - mZ^2 + t)*u*mmu^2*g^4*cW^(-4)*
+         gV^2 - 8/( - mZ^2 + t)/( - mZ^2 + t)*u*mmu^2*g^4*cW^(-4)*gV^4
+          - 1/32/( - mZ^2 + t)/( - mZ^2 + t)*u*mme^2*g^4*cW^(-4) - 1/(
+          - mZ^2 + t)/( - mZ^2 + t)*u*mme^2*g^4*cW^(-4)*gV^2 - 8/( - 
+         mZ^2 + t)/( - mZ^2 + t)*u*mme^2*g^4*cW^(-4)*gV^4 + 1/64/( - 
+         mZ^2 + t)/( - mZ^2 + t)*u^2*g^4*cW^(-4) + 1/2/( - mZ^2 + t)/(
+          - mZ^2 + t)*u^2*g^4*cW^(-4)*gV^2 + 4/( - mZ^2 + t)/( - mZ^2
+          + t)*u^2*g^4*cW^(-4)*gV^4;
+
+  0.01 sec out of 0.01 sec

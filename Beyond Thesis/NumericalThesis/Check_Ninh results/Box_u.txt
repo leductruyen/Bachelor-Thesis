@@ -1,0 +1,79 @@
+NLOMS[cthe_] := t^(-1)*e^6*pi^(-2) * (  - D0[cthe,u,t,mme,mmu]*mmu^6 - 3*D0[
+         cthe,u,t,mme,mmu]*mme^2*mmu^4 - 3*D0[cthe,u,t,mme,mmu]*mme^4*
+         mmu^2 - D0[cthe,u,t,mme,mmu]*mme^6 + 1/2*D0[cthe,u,t,mme,mmu]*
+         s^2*mmu^2 + 1/2*D0[cthe,u,t,mme,mmu]*s^2*mme^2 + D00[cthe,u,t,
+         mme,mmu]*mmu^4 + 2*D00[cthe,u,t,mme,mmu]*mme^2*mmu^2 + D00[
+         cthe,u,t,mme,mmu]*mme^4 + D00[cthe,u,t,mme,mmu]*s^2 + Dmn22[
+         cthe,u,t,mme,mmu]*mme^2*mmu^4 + 2*Dmn22[cthe,u,t,mme,mmu]*
+         mme^4*mmu^2 + Dmn22[cthe,u,t,mme,mmu]*mme^6 + 1/4*Dmn22[cthe,u
+         ,t,mme,mmu]*s^2*mme^2 - 1/2*Dmn23[cthe,u,t,mme,mmu]*mmu^6 + 1/
+         2*Dmn23[cthe,u,t,mme,mmu]*mme^2*mmu^4 + 1/2*Dmn23[cthe,u,t,mme
+         ,mmu]*mme^4*mmu^2 - 1/2*Dmn23[cthe,u,t,mme,mmu]*mme^6 + 1/2*
+         Dmn23[cthe,u,t,mme,mmu]*s^2*mmu^2 + 1/2*Dmn23[cthe,u,t,mme,mmu
+         ]*s^2*mme^2 + Dmn33[cthe,u,t,mme,mmu]*mmu^6 + 2*Dmn33[cthe,u,t
+         ,mme,mmu]*mme^2*mmu^4 + Dmn33[cthe,u,t,mme,mmu]*mme^4*mmu^2 + 
+         1/4*Dmn33[cthe,u,t,mme,mmu]*s^2*mmu^2 - Dm02[cthe,u,t,mme,mmu]
+         *mmu^6 - 6*Dm02[cthe,u,t,mme,mmu]*mme^2*mmu^4 - 7*Dm02[cthe,u,
+         t,mme,mmu]*mme^4*mmu^2 - 2*Dm02[cthe,u,t,mme,mmu]*mme^6 + 1/2*
+         Dm02[cthe,u,t,mme,mmu]*s^2*mmu^2 + Dm02[cthe,u,t,mme,mmu]*s^2*
+         mme^2 - 2*Dm03[cthe,u,t,mme,mmu]*mmu^6 - 7*Dm03[cthe,u,t,mme,
+         mmu]*mme^2*mmu^4 - 6*Dm03[cthe,u,t,mme,mmu]*mme^4*mmu^2 - 
+         Dm03[cthe,u,t,mme,mmu]*mme^6 + Dm03[cthe,u,t,mme,mmu]*s^2*
+         mmu^2 + 1/2*Dm03[cthe,u,t,mme,mmu]*s^2*mme^2 )+ t^(-1)*u*e^6*pi^(-2) * ( D0[cthe,u,t,mme,mmu]*mmu^4 + 2*D0[
+         cthe,u,t,mme,mmu]*mme^2*mmu^2 + D0[cthe,u,t,mme,mmu]*mme^4 - 1/
+         2*D0[cthe,u,t,mme,mmu]*s^2 - 6*D00[cthe,u,t,mme,mmu]*mmu^2 - 6
+         *D00[cthe,u,t,mme,mmu]*mme^2 - 3*Dmn22[cthe,u,t,mme,mmu]*mme^2
+         *mmu^2 - 3*Dmn22[cthe,u,t,mme,mmu]*mme^4 - 1/2*Dmn23[cthe,u,t,
+         mme,mmu]*mmu^4 - 3*Dmn23[cthe,u,t,mme,mmu]*mme^2*mmu^2 - 1/2*
+         Dmn23[cthe,u,t,mme,mmu]*mme^4 - 1/2*Dmn23[cthe,u,t,mme,mmu]*
+         s^2 - 3*Dmn33[cthe,u,t,mme,mmu]*mmu^4 - 3*Dmn33[cthe,u,t,mme,
+         mmu]*mme^2*mmu^2 + Dm02[cthe,u,t,mme,mmu]*mmu^4 + 4*Dm02[cthe,
+         u,t,mme,mmu]*mme^2*mmu^2 + Dm02[cthe,u,t,mme,mmu]*mme^4 - 1/2*
+         Dm02[cthe,u,t,mme,mmu]*s^2 + Dm03[cthe,u,t,mme,mmu]*mmu^4 + 4*
+         Dm03[cthe,u,t,mme,mmu]*mme^2*mmu^2 + Dm03[cthe,u,t,mme,mmu]*
+         mme^4 - 1/2*Dm03[cthe,u,t,mme,mmu]*s^2 )+ t^(-1)*u^2*e^6*pi^(-2) * ( 1/2*D0[cthe,u,t,mme,mmu]*mmu^2 + 1/
+         2*D0[cthe,u,t,mme,mmu]*mme^2 + 4*D00[cthe,u,t,mme,mmu] + 7/4*
+         Dmn22[cthe,u,t,mme,mmu]*mme^2 + 2*Dmn23[cthe,u,t,mme,mmu]*
+         mmu^2 + 2*Dmn23[cthe,u,t,mme,mmu]*mme^2 + 7/4*Dmn33[cthe,u,t,
+         mme,mmu]*mmu^2 + 1/2*Dm02[cthe,u,t,mme,mmu]*mmu^2 + Dm02[cthe,
+         u,t,mme,mmu]*mme^2 + Dm03[cthe,u,t,mme,mmu]*mmu^2 + 1/2*Dm03[
+         cthe,u,t,mme,mmu]*mme^2 )+ t^(-1)*u^3*e^6*pi^(-2) * (  - 1/2*D0[cthe,u,t,mme,mmu] - 
+         Dmn23[cthe,u,t,mme,mmu] - 1/2*Dm02[cthe,u,t,mme,mmu] - 1/2*
+         Dm03[cthe,u,t,mme,mmu] )+ e^6*pi^(-2) * ( 2*D0[cthe,u,t,mme,mmu]*mmu^4 + 4*D0[cthe,u,t,
+         mme,mmu]*mme^2*mmu^2 + 2*D0[cthe,u,t,mme,mmu]*mme^4 + 7*D00[
+         cthe,u,t,mme,mmu]*mmu^2 + 7*D00[cthe,u,t,mme,mmu]*mme^2 + 1/4*
+         Dmn11[cthe,u,t,mme,mmu]*s^2 + 1/4*Dmn12[cthe,u,t,mme,mmu]*s^2
+          + 1/4*Dmn13[cthe,u,t,mme,mmu]*s^2 + Dmn22[cthe,u,t,mme,mmu]*
+         mme^2*mmu^2 + 2*Dmn22[cthe,u,t,mme,mmu]*mme^4 + 5/2*Dmn23[cthe
+         ,u,t,mme,mmu]*mmu^4 + 5*Dmn23[cthe,u,t,mme,mmu]*mme^2*mmu^2 + 
+         5/2*Dmn23[cthe,u,t,mme,mmu]*mme^4 + 2*Dmn33[cthe,u,t,mme,mmu]*
+         mmu^4 + Dmn33[cthe,u,t,mme,mmu]*mme^2*mmu^2 - Dm01[cthe,u,t,
+         mme,mmu]*mmu^4 - 2*Dm01[cthe,u,t,mme,mmu]*mme^2*mmu^2 - Dm01[
+         cthe,u,t,mme,mmu]*mme^4 + 1/2*Dm01[cthe,u,t,mme,mmu]*s^2 + 2*
+         Dm02[cthe,u,t,mme,mmu]*mmu^4 + 6*Dm02[cthe,u,t,mme,mmu]*mme^2*
+         mmu^2 + 4*Dm02[cthe,u,t,mme,mmu]*mme^4 + 4*Dm03[cthe,u,t,mme,
+         mmu]*mmu^4 + 6*Dm03[cthe,u,t,mme,mmu]*mme^2*mmu^2 + 2*Dm03[
+         cthe,u,t,mme,mmu]*mme^4 )+ u*e^6*pi^(-2) * (  - 2*D0[cthe,u,t,mme,mmu]*mmu^2 - 2*D0[cthe,
+         u,t,mme,mmu]*mme^2 - Dmn11[cthe,u,t,mme,mmu]*mmu^2 - Dmn11[
+         cthe,u,t,mme,mmu]*mme^2 - Dmn12[cthe,u,t,mme,mmu]*mmu^2 - 
+         Dmn12[cthe,u,t,mme,mmu]*mme^2 - Dmn13[cthe,u,t,mme,mmu]*mmu^2
+          - Dmn13[cthe,u,t,mme,mmu]*mme^2 + 1/2*Dmn22[cthe,u,t,mme,mmu]
+         *mme^2 - 5/2*Dmn23[cthe,u,t,mme,mmu]*mmu^2 - 5/2*Dmn23[cthe,u,
+         t,mme,mmu]*mme^2 + 1/2*Dmn33[cthe,u,t,mme,mmu]*mmu^2 - 2*Dm02[
+         cthe,u,t,mme,mmu]*mmu^2 - 2*Dm02[cthe,u,t,mme,mmu]*mme^2 - 2*
+         Dm03[cthe,u,t,mme,mmu]*mmu^2 - 2*Dm03[cthe,u,t,mme,mmu]*mme^2
+          )+ u^2*e^6*pi^(-2) * ( 3/4*Dmn11[cthe,u,t,mme,mmu] + 3/4*Dmn12[
+         cthe,u,t,mme,mmu] + 3/4*Dmn13[cthe,u,t,mme,mmu] + 1/2*Dm01[
+         cthe,u,t,mme,mmu] )+ t*e^6*pi^(-2) * ( 2*Dmn11[cthe,u,t,mme,mmu]*mmu^2 + 2*Dmn11[
+         cthe,u,t,mme,mmu]*mme^2 + 2*Dmn12[cthe,u,t,mme,mmu]*mmu^2 + 2*
+         Dmn12[cthe,u,t,mme,mmu]*mme^2 + 2*Dmn13[cthe,u,t,mme,mmu]*
+         mmu^2 + 2*Dmn13[cthe,u,t,mme,mmu]*mme^2 - 1/4*Dmn22[cthe,u,t,
+         mme,mmu]*mme^2 - 1/2*Dmn23[cthe,u,t,mme,mmu]*mmu^2 - 1/2*
+         Dmn23[cthe,u,t,mme,mmu]*mme^2 - 1/4*Dmn33[cthe,u,t,mme,mmu]*
+         mmu^2 + 3*Dm01[cthe,u,t,mme,mmu]*mmu^2 + 3*Dm01[cthe,u,t,mme,
+         mmu]*mme^2 - 1/2*Dm02[cthe,u,t,mme,mmu]*mme^2 - 1/2*Dm03[cthe,
+         u,t,mme,mmu]*mmu^2 )+ t*u*e^6*pi^(-2) * (  - 1/2*Dmn11[cthe,u,t,mme,mmu] - 1/2*
+         Dmn12[cthe,u,t,mme,mmu] - 1/2*Dmn13[cthe,u,t,mme,mmu] - Dm01[
+         cthe,u,t,mme,mmu] )+ t^2*e^6*pi^(-2) * (  - 1/4*Dmn11[cthe,u,t,mme,mmu] - 1/4*
+         Dmn12[cthe,u,t,mme,mmu] - 1/4*Dmn13[cthe,u,t,mme,mmu] - 1/2*
+         Dm01[cthe,u,t,mme,mmu] );

@@ -1,0 +1,365 @@
+FORM 4.2.1 (Thg 8 28 2019, v4.2.1-5-g4057c65) 64-bits  Run: Wed Sep  8 17:49:47 2021
+    *
+    *******************************                L.D Truyen 12/7/2020             
+          *******************************************                          
+    *
+    ********************************************************************************
+    ***********************************************
+    *************************************************   DECLARE   ******************
+    *****************************************************
+    ********************************************************************************
+    ***********************************************
+    *  Parameters and Mandelstam variable
+    Symbols t,s,u,e,mme,mmu,g,cW,mW,gV,mZ,mH;
+    *  Particles momentum
+    vector q,k,k1,p,p1;
+    *  Dirac spinor
+    function U,V;
+    Cfunction Ubar,Vbar,
+    *  Particles mass
+     m;
+    *  Tensor index
+    indices i,j,mu,nu,rho,sigma;
+    *
+    ********************************************************************************
+    ***********************************************
+    **************************************  Feynman Amplitude   ********************
+    ****************************************************
+    ********************************************************************************
+    ************************************************
+    ********************
+    *   Amplitude
+    ********************
+    local [M1]=
+    *  Photon diagram
+    i_*e^2*Ubar(1,k1)*g_(1,mu)*U(1,k)*d_(mu,nu)/t*Ubar(2,p1)*g_(2,nu)*U(2,p)+
+    *  Z boson diagram
+    *Ubar(1,k1)*(i_*g/cW*g_(1,mu)*(gV+1/4*g5_(1)))*U(1,k)*(-i_*(d_(mu,nu))/(t-mZ^2))
+    *Ubar(2,p1)*(i_*g/cW*g_(2,nu)*(gV+1/4*g5_(2)))*U(2,p)+
+    *  Higgs diagram
+    Ubar(1,k1)*(-i_*g/2*mme/mW)*U(1,k)*(i_/(t-mH^2))*Ubar(2,p1)*(-i_*g/2*mmu/mW)*U(2
+    ,p);
+    *  Goldstone diagram
+    *Ubar(1,k1)*(g/2*mme/mW*g5_(1))*U(1,k)*i_/(t-mZ^2)*Ubar(2,p1)*(g/2*mmu/mW*g5_(2)
+    )*U(2,p);
+    *************************
+    *  Amplitude conjugate
+    *************************
+    local [M1*] = 
+    *  Photon diagram
+    -i_*e^2*Ubar(1,k)*g_(1,rho)*U(1,k1)*d_(rho,sigma)/t*Ubar(2,p)*g_(2,sigma)*U(2,p1
+    )+
+    *  Z boson diagram
+    *Ubar(1,k)*(-i_*g/cW*g_(1,rho)*(gV+1/4*g5_(1)))*U(1,k1)*(i_*(d_(rho,sigma))/(t-m
+    Z^2))*Ubar(2,p)*(-i_*g/cW*g_(2,sigma)*(gV+1/4*g5_(2)))*U(2,p1)+
+    *  Higgs diagram
+    Ubar(1,k)*(i_*g/2*mme/mW)*U(1,k1)*(-i_/(t-mH^2))*Ubar(2,p)*(i_*g/2*mmu/mW)*U(2,p
+    1);
+    *  Goldstone diagram
+    *Ubar(1,k)*(-g/2*mme/mW*g5_(1))*U(1,k1)*(-i_/(t-mZ^2))*Ubar(2,p)*(-g/2*mmu/mW*g5
+    _(2))*U(2,p1);
+    *************************
+    *  Square Amplitude
+    *************************
+    local [M^2]=1/4*[M1]*[M1*];
+    bracket t;
+    print;
+    .sort 
+
+Time =       0.00 sec    Generated terms =          2
+            [M1]         Terms in output =          2
+                         Bytes used      =        496
+
+Time =       0.00 sec    Generated terms =          2
+           [M1*]         Terms in output =          2
+                         Bytes used      =        496
+
+Time =       0.00 sec    Generated terms =          4
+           [M^2]         Terms in output =          4
+                         Bytes used      =       1676
+
+   [M1] =
+       + t^-1 * ( g_(1,nu)*U(1,k)*g_(2,nu)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*i_*e^2
+          )
+
+       - 1/4*U(1,k)/( - mH^2 + t)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*i_*mme*mmu*g^2*
+      mW^-2;
+
+   [M1*] =
+       + t^-1 * (  - g_(1,sigma)*U(1,k1)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(2,
+         p)*i_*e^2 )
+
+       + 1/4*U(1,k1)/( - mH^2 + t)*U(2,p1)*Ubar(1,k)*Ubar(2,p)*i_*mme*mmu*g^2*
+      mW^-2;
+
+   [M^2] =
+       + t^-2 * ( 1/4*g_(1,nu)*U(1,k)*g_(2,nu)*U(2,p)*g_(1,sigma)*U(1,k1)*g_(2
+         ,sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^4 )
+
+       + t^-1 * (  - 1/16*g_(1,nu)*U(1,k)*g_(2,nu)*U(2,p)*U(1,k1)/( - mH^2 + t
+         )*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^2*mme*mmu*g^2*
+         mW^-2 - 1/16*U(1,k)/( - mH^2 + t)*U(2,p)*g_(1,sigma)*U(1,k1)*g_(2,
+         sigma)*U(2,p1)*Ubar(1,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*e^2*mme*mmu*
+         g^2*mW^-2 )
+
+       + 1/64*U(1,k)/( - mH^2 + t)*U(2,p)*U(1,k1)/( - mH^2 + t)*U(2,p1)*Ubar(1
+      ,k)*Ubar(1,k1)*Ubar(2,p)*Ubar(2,p1)*mme^2*mmu^2*g^4*mW^-4;
+
+    *************************
+    *     identities        *
+    *************************
+    *  Dirac equation  
+    id U(i?,k?)*Ubar(i?,k?)=(g_(i,k)+m(k)*gi_(i));
+    id V(i?,k?)*Vbar(i?,k?)=(g_(i,k)-m(k)*gi_(i));
+    *  mass identification
+    id m(k?{k,k1})=mme;
+    id m(k?{p,p1})=mmu;
+    bracket t;
+    print;
+    .sort
+
+Time =       0.00 sec    Generated terms =          2
+            [M1]         Terms in output =          2
+                         Bytes used      =        496
+
+Time =       0.00 sec    Generated terms =          2
+           [M1*]         Terms in output =          2
+                         Bytes used      =        496
+
+Time =       0.00 sec    Generated terms =         64
+           [M^2]         Terms in output =         64
+                         Bytes used      =       7416
+
+   [M1] =
+       + t^-1 * ( g_(1,nu)*U(1,k)*g_(2,nu)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*i_*e^2
+          )
+
+       - 1/4*U(1,k)/( - mH^2 + t)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*i_*mme*mmu*g^2*
+      mW^-2;
+
+   [M1*] =
+       + t^-1 * (  - g_(1,sigma)*U(1,k1)*g_(2,sigma)*U(2,p1)*Ubar(1,k)*Ubar(2,
+         p)*i_*e^2 )
+
+       + 1/4*U(1,k1)/( - mH^2 + t)*U(2,p1)*Ubar(1,k)*Ubar(2,p)*i_*mme*mmu*g^2*
+      mW^-2;
+
+   [M^2] =
+       + t^-2 * ( 1/4*g_(1,nu,k,sigma,k1)*g_(2,nu,p,sigma,p1)*e^4 + 1/4*g_(1,
+         nu,k,sigma,k1)*g_(2,nu,p,sigma)*e^4*mmu + 1/4*g_(1,nu,k,sigma,k1)*g_(
+         2,nu,sigma,p1)*e^4*mmu + 1/4*g_(1,nu,k,sigma,k1)*g_(2,nu,sigma)*e^4*
+         mmu^2 + 1/4*g_(1,nu,k,sigma)*g_(2,nu,p,sigma,p1)*e^4*mme + 1/4*g_(1,
+         nu,k,sigma)*g_(2,nu,p,sigma)*e^4*mme*mmu + 1/4*g_(1,nu,k,sigma)*g_(2,
+         nu,sigma,p1)*e^4*mme*mmu + 1/4*g_(1,nu,k,sigma)*g_(2,nu,sigma)*e^4*
+         mme*mmu^2 + 1/4*g_(1,nu,sigma,k1)*g_(2,nu,p,sigma,p1)*e^4*mme + 1/4*
+         g_(1,nu,sigma,k1)*g_(2,nu,p,sigma)*e^4*mme*mmu + 1/4*g_(1,nu,sigma,k1
+         )*g_(2,nu,sigma,p1)*e^4*mme*mmu + 1/4*g_(1,nu,sigma,k1)*g_(2,nu,sigma
+         )*e^4*mme*mmu^2 + 1/4*g_(1,nu,sigma)*g_(2,nu,p,sigma,p1)*e^4*mme^2 + 
+         1/4*g_(1,nu,sigma)*g_(2,nu,p,sigma)*e^4*mme^2*mmu + 1/4*g_(1,nu,sigma
+         )*g_(2,nu,sigma,p1)*e^4*mme^2*mmu + 1/4*g_(1,nu,sigma)*g_(2,nu,sigma)
+         *e^4*mme^2*mmu^2 )
+
+       + t^-1 * (  - 1/16*g_(1,k)/( - mH^2 + t)*g_(1,sigma,k1)*g_(2,p,sigma,p1
+         )*e^2*mme*mmu*g^2*mW^-2 - 1/16*g_(1,k)/( - mH^2 + t)*g_(1,sigma,k1)*
+         g_(2,p,sigma)*e^2*mme*mmu^2*g^2*mW^-2 - 1/16*g_(1,k)/( - mH^2 + t)*
+         g_(1,sigma,k1)*g_(2,sigma,p1)*e^2*mme*mmu^2*g^2*mW^-2 - 1/16*g_(1,k)
+         /( - mH^2 + t)*g_(1,sigma,k1)*g_(2,sigma)*e^2*mme*mmu^3*g^2*mW^-2 - 1/
+         16*g_(1,k)/( - mH^2 + t)*g_(1,sigma)*g_(2,p,sigma,p1)*e^2*mme^2*mmu*
+         g^2*mW^-2 - 1/16*g_(1,k)/( - mH^2 + t)*g_(1,sigma)*g_(2,p,sigma)*e^2*
+         mme^2*mmu^2*g^2*mW^-2 - 1/16*g_(1,k)/( - mH^2 + t)*g_(1,sigma)*g_(2,
+         sigma,p1)*e^2*mme^2*mmu^2*g^2*mW^-2 - 1/16*g_(1,k)/( - mH^2 + t)*g_(1
+         ,sigma)*g_(2,sigma)*e^2*mme^2*mmu^3*g^2*mW^-2 - 1/16*g_(1,nu,k,k1)*
+         g_(2,nu,p)/( - mH^2 + t)*g_(2,p1)*e^2*mme*mmu*g^2*mW^-2 - 1/16*g_(1,
+         nu,k,k1)*g_(2,nu,p)/( - mH^2 + t)*gi_(2)*e^2*mme*mmu^2*g^2*mW^-2 - 1/
+         16*g_(1,nu,k,k1)*g_(2,nu)/( - mH^2 + t)*g_(2,p1)*e^2*mme*mmu^2*g^2*
+         mW^-2 - 1/16*g_(1,nu,k,k1)*g_(2,nu)/( - mH^2 + t)*gi_(2)*e^2*mme*
+         mmu^3*g^2*mW^-2 - 1/16*g_(1,nu,k)*g_(2,nu,p)/( - mH^2 + t)*g_(2,p1)*
+         e^2*mme^2*mmu*g^2*mW^-2 - 1/16*g_(1,nu,k)*g_(2,nu,p)/( - mH^2 + t)*
+         gi_(2)*e^2*mme^2*mmu^2*g^2*mW^-2 - 1/16*g_(1,nu,k)*g_(2,nu)/( - mH^2
+          + t)*g_(2,p1)*e^2*mme^2*mmu^2*g^2*mW^-2 - 1/16*g_(1,nu,k)*g_(2,nu)/(
+          - mH^2 + t)*gi_(2)*e^2*mme^2*mmu^3*g^2*mW^-2 - 1/16*g_(1,nu,k1)*g_(2
+         ,nu,p)/( - mH^2 + t)*g_(2,p1)*e^2*mme^2*mmu*g^2*mW^-2 - 1/16*g_(1,nu,
+         k1)*g_(2,nu,p)/( - mH^2 + t)*gi_(2)*e^2*mme^2*mmu^2*g^2*mW^-2 - 1/16*
+         g_(1,nu,k1)*g_(2,nu)/( - mH^2 + t)*g_(2,p1)*e^2*mme^2*mmu^2*g^2*mW^-2
+          - 1/16*g_(1,nu,k1)*g_(2,nu)/( - mH^2 + t)*gi_(2)*e^2*mme^2*mmu^3*g^2
+         *mW^-2 - 1/16*g_(1,nu)*g_(2,nu,p)/( - mH^2 + t)*g_(2,p1)*e^2*mme^3*
+         mmu*g^2*mW^-2 - 1/16*g_(1,nu)*g_(2,nu,p)/( - mH^2 + t)*gi_(2)*e^2*
+         mme^3*mmu^2*g^2*mW^-2 - 1/16*g_(1,nu)*g_(2,nu)/( - mH^2 + t)*g_(2,p1)
+         *e^2*mme^3*mmu^2*g^2*mW^-2 - 1/16*g_(1,nu)*g_(2,nu)/( - mH^2 + t)*
+         gi_(2)*e^2*mme^3*mmu^3*g^2*mW^-2 - 1/16*gi_(1)/( - mH^2 + t)*g_(1,
+         sigma,k1)*g_(2,p,sigma,p1)*e^2*mme^2*mmu*g^2*mW^-2 - 1/16*gi_(1)/( - 
+         mH^2 + t)*g_(1,sigma,k1)*g_(2,p,sigma)*e^2*mme^2*mmu^2*g^2*mW^-2 - 1/
+         16*gi_(1)/( - mH^2 + t)*g_(1,sigma,k1)*g_(2,sigma,p1)*e^2*mme^2*mmu^2
+         *g^2*mW^-2 - 1/16*gi_(1)/( - mH^2 + t)*g_(1,sigma,k1)*g_(2,sigma)*e^2
+         *mme^2*mmu^3*g^2*mW^-2 - 1/16*gi_(1)/( - mH^2 + t)*g_(1,sigma)*g_(2,p
+         ,sigma,p1)*e^2*mme^3*mmu*g^2*mW^-2 - 1/16*gi_(1)/( - mH^2 + t)*g_(1,
+         sigma)*g_(2,p,sigma)*e^2*mme^3*mmu^2*g^2*mW^-2 - 1/16*gi_(1)/( - mH^2
+          + t)*g_(1,sigma)*g_(2,sigma,p1)*e^2*mme^3*mmu^2*g^2*mW^-2 - 1/16*
+         gi_(1)/( - mH^2 + t)*g_(1,sigma)*g_(2,sigma)*e^2*mme^3*mmu^3*g^2*
+         mW^-2 )
+
+       + 1/64*g_(1,k)/( - mH^2 + t)*g_(1,k1)*g_(2,p)/( - mH^2 + t)*g_(2,p1)*
+      mme^2*mmu^2*g^4*mW^-4 + 1/64*g_(1,k)/( - mH^2 + t)*g_(1,k1)*g_(2,p)/( - 
+         mH^2 + t)*gi_(2)*mme^2*mmu^3*g^4*mW^-4 + 1/64*g_(1,k)/( - mH^2 + t)*
+         g_(1,k1)*gi_(2)/( - mH^2 + t)*g_(2,p1)*mme^2*mmu^3*g^4*mW^-4 + 1/64*
+         g_(1,k)/( - mH^2 + t)*g_(1,k1)*gi_(2)/( - mH^2 + t)*gi_(2)*mme^2*
+         mmu^4*g^4*mW^-4 + 1/64*g_(1,k)/( - mH^2 + t)*gi_(1)*g_(2,p)/( - mH^2
+          + t)*g_(2,p1)*mme^3*mmu^2*g^4*mW^-4 + 1/64*g_(1,k)/( - mH^2 + t)*
+         gi_(1)*g_(2,p)/( - mH^2 + t)*gi_(2)*mme^3*mmu^3*g^4*mW^-4 + 1/64*g_(1
+         ,k)/( - mH^2 + t)*gi_(1)*gi_(2)/( - mH^2 + t)*g_(2,p1)*mme^3*mmu^3*
+         g^4*mW^-4 + 1/64*g_(1,k)/( - mH^2 + t)*gi_(1)*gi_(2)/( - mH^2 + t)*
+         gi_(2)*mme^3*mmu^4*g^4*mW^-4 + 1/64*gi_(1)/( - mH^2 + t)*g_(1,k1)*g_(
+         2,p)/( - mH^2 + t)*g_(2,p1)*mme^3*mmu^2*g^4*mW^-4 + 1/64*gi_(1)/( - 
+         mH^2 + t)*g_(1,k1)*g_(2,p)/( - mH^2 + t)*gi_(2)*mme^3*mmu^3*g^4*mW^-4
+          + 1/64*gi_(1)/( - mH^2 + t)*g_(1,k1)*gi_(2)/( - mH^2 + t)*g_(2,p1)*
+         mme^3*mmu^3*g^4*mW^-4 + 1/64*gi_(1)/( - mH^2 + t)*g_(1,k1)*gi_(2)/(
+          - mH^2 + t)*gi_(2)*mme^3*mmu^4*g^4*mW^-4 + 1/64*gi_(1)/( - mH^2 + t)
+         *gi_(1)*g_(2,p)/( - mH^2 + t)*g_(2,p1)*mme^4*mmu^2*g^4*mW^-4 + 1/64*
+         gi_(1)/( - mH^2 + t)*gi_(1)*g_(2,p)/( - mH^2 + t)*gi_(2)*mme^4*mmu^3*
+         g^4*mW^-4 + 1/64*gi_(1)/( - mH^2 + t)*gi_(1)*gi_(2)/( - mH^2 + t)*g_(
+         2,p1)*mme^4*mmu^3*g^4*mW^-4 + 1/64*gi_(1)/( - mH^2 + t)*gi_(1)*gi_(2)
+         /( - mH^2 + t)*gi_(2)*mme^4*mmu^4*g^4*mW^-4;
+
+    ******   Trace calculation   **********
+    Trace4,1;
+    Trace4,2;
+    print;
+    .sort
+
+Time =       0.00 sec    Generated terms =          1
+            [M1]         Terms in output =          1
+                         Bytes used      =        264
+
+Time =       0.00 sec    Generated terms =          1
+           [M1*]         Terms in output =          1
+                         Bytes used      =        264
+
+Time =       0.00 sec    Generated terms =         28
+           [M^2]         Terms in output =         13
+                         Bytes used      =       1148
+
+   [M1] =
+       - 1/4*U(1,k)/( - mH^2 + t)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*i_*mme*mmu*g^2*
+      mW^-2;
+
+   [M1*] =
+      1/4*U(1,k1)/( - mH^2 + t)*U(2,p1)*Ubar(1,k)*Ubar(2,p)*i_*mme*mmu*g^2*
+      mW^-2;
+
+   [M^2] =
+      16*t^-2*e^4*mme^2*mmu^2 - 8*k.k1*t^-2*e^4*mmu^2 + 8*k.p*k1.p1*t^-2*e^4
+       + 8*k.p1*k1.p*t^-2*e^4 - 8*p.p1*t^-2*e^4*mme^2 - 2/( - mH^2 + t)*k.p*
+      t^-1*e^2*mme^2*mmu^2*g^2*mW^-2 - 2/( - mH^2 + t)*k.p1*t^-1*e^2*mme^2*
+      mmu^2*g^2*mW^-2 - 2/( - mH^2 + t)*k1.p*t^-1*e^2*mme^2*mmu^2*g^2*mW^-2 - 
+      2/( - mH^2 + t)*k1.p1*t^-1*e^2*mme^2*mmu^2*g^2*mW^-2 + 1/4/( - mH^2 + t)
+      /( - mH^2 + t)*mme^4*mmu^4*g^4*mW^-4 + 1/4/( - mH^2 + t)/( - mH^2 + t)*
+      k.k1*p.p1*mme^2*mmu^2*g^4*mW^-4 + 1/4/( - mH^2 + t)/( - mH^2 + t)*k.k1*
+      mme^2*mmu^4*g^4*mW^-4 + 1/4/( - mH^2 + t)/( - mH^2 + t)*p.p1*mme^4*mmu^2
+      *g^4*mW^-4;
+
+    ***************************************
+    *       Mandelstam variables          *
+    id q.q = t;
+    id k1.k = mme^2-t/2;
+    id p1.p = mmu^2-t/2;
+    bracket t;
+    print;
+    .sort
+
+Time =       0.00 sec    Generated terms =          1
+            [M1]         Terms in output =          1
+                         Bytes used      =        276
+
+Time =       0.00 sec    Generated terms =          1
+           [M1*]         Terms in output =          1
+                         Bytes used      =        276
+
+Time =       0.00 sec    Generated terms =         20
+           [M^2]         Terms in output =         12
+                         Bytes used      =       1416
+
+   [M1] =
+       - 1/4*U(1,k)/( - mH^2 + t)*U(2,p)*Ubar(1,k1)*Ubar(2,p1)*i_*mme*mmu*g^2*
+         mW^-2;
+
+   [M1*] =
+       + 1/4*U(1,k1)/( - mH^2 + t)*U(2,p1)*Ubar(1,k)*Ubar(2,p)*i_*mme*mmu*g^2*
+         mW^-2;
+
+   [M^2] =
+       + t^-2 * ( 8*k.p*k1.p1*e^4 + 8*k.p1*k1.p*e^4 )
+
+       + t^-1 * ( 4*e^4*mmu^2 + 4*e^4*mme^2 - 2/( - mH^2 + t)*k.p*e^2*mme^2*
+         mmu^2*g^2*mW^-2 - 2/( - mH^2 + t)*k.p1*e^2*mme^2*mmu^2*g^2*mW^-2 - 2
+         /( - mH^2 + t)*k1.p*e^2*mme^2*mmu^2*g^2*mW^-2 - 2/( - mH^2 + t)*k1.p1
+         *e^2*mme^2*mmu^2*g^2*mW^-2 )
+
+       + t * (  - 1/4/( - mH^2 + t)/( - mH^2 + t)*mme^2*mmu^4*g^4*mW^-4 - 1/4
+         /( - mH^2 + t)/( - mH^2 + t)*mme^4*mmu^2*g^4*mW^-4 )
+
+       + t^2 * ( 1/16/( - mH^2 + t)/( - mH^2 + t)*mme^2*mmu^2*g^4*mW^-4 )
+
+       + 1/( - mH^2 + t)/( - mH^2 + t)*mme^4*mmu^4*g^4*mW^-4;
+
+    id k.p = (s-mmu^2-mme^2)/2;
+    id k1.p1 = (s-mmu^2-mme^2)/2;
+    id k.p1 = (mmu^2+mme^2-u)/2;
+    id k1.p = (mmu^2+mme^2-u)/2;
+    id q.k = -t/2;
+    id q.k1 = t/2;
+    id q.p = t/2;
+    id q.p1 = -t/2;
+    id s=2*mmu^2+2*mme^2-t-u;
+    *
+    *****   export result  *******
+    *
+    bracket t;
+    format mathematica;
+    print +s [M^2];
+    .end  
+
+Time =       0.00 sec    Generated terms =          1
+            [M1]         Terms in output =          1
+                         Bytes used      =        276
+
+Time =       0.00 sec    Generated terms =          1
+           [M1*]         Terms in output =          1
+                         Bytes used      =        276
+
+Time =       0.00 sec    Generated terms =         63
+           [M^2]         Terms in output =         16
+                         Bytes used      =       1484
+
+   [M^2] =
+
+       + t^(-2) * (
+          + 4*e^4*mmu^4
+          + 8*e^4*mme^2*mmu^2
+          + 4*e^4*mme^4
+          - 8*u*e^4*mmu^2
+          - 8*u*e^4*mme^2
+          + 4*u^2*e^4
+          )
+
+       + t^(-1) * (
+          + 4*u*e^4
+          - 4/( - mH^2 + t)*e^2*mme^2*mmu^4*g^2*mW^(-2)
+          - 4/( - mH^2 + t)*e^2*mme^4*mmu^2*g^2*mW^(-2)
+          + 4/( - mH^2 + t)*u*e^2*mme^2*mmu^2*g^2*mW^(-2)
+          )
+
+       + t * (
+          - 1/4/( - mH^2 + t)/( - mH^2 + t)*mme^2*mmu^4*g^4*mW^(-4)
+          - 1/4/( - mH^2 + t)/( - mH^2 + t)*mme^4*mmu^2*g^4*mW^(-4)
+          )
+
+       + t^2 * (
+          + 1/16/( - mH^2 + t)/( - mH^2 + t)*mme^2*mmu^2*g^4*mW^(-4)
+          )
+
+       + 2*e^4
+          + 2/( - mH^2 + t)*e^2*mme^2*mmu^2*g^2*mW^(-2)
+          + 1/( - mH^2 + t)/( - mH^2 + t)*mme^4*mmu^4*g^4*mW^(-4)
+         ;
+
+  0.00 sec out of 0.00 sec

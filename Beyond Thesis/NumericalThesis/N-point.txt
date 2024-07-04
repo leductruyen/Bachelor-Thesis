@@ -1,0 +1,144 @@
+(*********************One point function*********************)
+A0[m_]:=m^2*(-Log[m^2/nu^2]+1);
+
+
+(*********************Two point function**********************)
+B01[cthe_,p_,m_]:=-Log[m^2/nu^2]+2+(m^2-p[cthe])/p[cthe]*Log[(m^2-p[cthe]-I*eps)/m^2];(*B_0(p^2,0,m)*)
+B02[m_]:=-Log[m^2/nu^2]+1;(*B_0(0,0,m)*)
+B03[m_]:=-Log[m^2/nu^2]+2;(*B_0(m,0,m)*)
+B04[cthe_,p_]:=-Log[(-p[cthe]-I*eps)/nu^2]+2;(*B_0(p,0,0)*)
+B05[m_]:=-Log[m^2/nu^2];(*B_0(0,m,m)*)
+(*---------------------------------------------------------------------------------------------
+X1[cthe_,tba_,m_]:=(-1+Sqrt[1-4*m^2/tba[cthe]])/-2;(*tba<0,X1<0*)
+X2[cthe_,tba_,m_]:=(-1-Sqrt[1-4*m^2/tba[cthe]])/-2;(*tba<0,X2>1*)
+B0[cthe_,tba_,m_]:=-Log[m^2/nu^2]+2+X1[cthe,tba,m]*Log[(1-X1[cthe,tba,m])/-X1[cthe,tba,m]]+X2[cthe,tba,m]*Log[(X2[cthe,tba,m]-1)/X2[cthe,tba,m]];(*B_0(q,m,m)&q^2=tba<0*)
+----------------------------------------------------------------------------------------------*)
+X1[cthe_,s_,m1_,m2_]:=(s[cthe]+I*eps+m1^2-m2^2+Sqrt[(s[cthe]+I*eps-m1^2-m2^2)^2-4*m1^2*m2^2])/(2*s[cthe]);
+X2[cthe_,s_,m1_,m2_]:=(s[cthe]+I*eps+m1^2-m2^2-Sqrt[(s[cthe]+I*eps-m1^2-m2^2)^2-4*m1^2*m2^2])/(2*s[cthe]);
+B0[cthe_,s_,m1_,m2_]:=-Log[m2^2/nu^2]+2+X1[cthe,s,m1,m2]*Log[(X1[cthe,s,m1,m2]-1)/X1[cthe,s,m1,m2]]+X2[cthe,s,m1,m2]*Log[(X2[cthe,s,m1,m2]-1)/X2[cthe,s,m1,m2]];(*B_0(s,m1^2,m2^2)*)
+(********************1st-order Tensor two point function*****************)
+B1[cthe_,p_,m1_,m2_]:=1/(2*p[cthe])*(A0[m1]-A0[m2]-(p[cthe]-m2^2+m1^2)*B0[cthe,p,m1,m2]);(*B1(p,m,m)*)
+(*************************2nd-order Tensor two point function*******************)
+Bmn[cthe_,p_,m_]:={
+ {1/6*(A0[m]+2*m^2*B0[cthe,p,m,m]+(p[cthe])*B1[cthe,p,m,m]+2*m^2-p[cthe]/3)},
+ {1/(6*p[cthe])*(2*A0[m]-2*m^2*B0[cthe,p,m,m]-4*(p[cthe])*B1[cthe,p,m,m]-2*m^2+p[cthe]/3)}
+};(*Bmn(p,m,m)& Bmn[cthe,p,m][[1,1]]=B00(p,m,m), Bmn[cthe,p,m][[2,1]]=B11(p,m,m)*)
+Bmn00[cthe_,p_,m_]:=Bmn[cthe,p,m][[1,1]];
+Bmn11[cthe_,p_,m_]:=Bmn[cthe, p,m][[2,1]];
+(********************Derivative two point function********************)
+dB0[m_]:=-1/m^2*(Log[Lambda/m]+1);(*dB_0(m,0,m)*)
+dB01[m_]:=1/(6*m^2);(*dB_0(0,m,m)*)
+
+
+(*******************Three point function*************************)
+xt[cthe_,tba_,m1_,m2_]:=(Sqrt[1-4*m1*m2/(tba[cthe]+I*eps-(m1-m2)^2)]-1)/(Sqrt[1-4*m1*m2/(tba[cthe]+I*eps-(m1-m2)^2)]+1);(*x_t,x_s,x_u*)
+Z1[cthe_,tba_,m1_,m2_]:=(tba[cthe]+I*eps+m2^2-m1^2+Sqrt[(tba[cthe]+I*eps-(m1-m2)^2)^2*(1-4*m1*m2/(tba[cthe]+I*eps-(m1-m2)^2))])/(2*(tba[cthe]+I*eps));
+Z2[cthe_,tba_,m1_,m2_]:=(tba[cthe]+I*eps+m2^2-m1^2-Sqrt[(tba[cthe]+I*eps-(m1-m2)^2)^2*(1-4*m1*m2/(tba[cthe]+I*eps-(m1-m2)^2))])/(2*(tba[cthe]+I*eps));
+(*C0[cthe_,tba_,m1_,m2_]:=xt[cthe,tba,m1,m2]/(m1*m2*(1-xt[cthe,tba,m1,m2]^2))*(-Log[xt[cthe,tba,m1,m2]]*Log[Lambda^2/(m1*m2)]+PolyLog[2,1-xt[cthe,tba,m1,m2]*m1/m2]+PolyLog[2,1-xt[cthe,tba,m1,m2]*m2/m1]+PolyLog[2,xt[cthe,tba,m1,m2]^2]+2*Log[xt[cthe,tba,m1,m2]]*Log[1-xt[cthe,tba,m1,m2]^2]-Pi^2/6+1/2*Log[m2/m1]^2-1/2*Log[xt[cthe,tba,m1,m2]]^2);*)
+C0[cthe_,tba_,m1_,m2_]:=If[tba[cthe]>0,-xt[cthe,tba,m1,m2]/(m1*m2*(1-xt[cthe,tba,m1,m2]^2))*Log[xt[cthe,tba,m1,m2]]*Log[Lambda^2/(m1*m2)]+xt[cthe,tba,m1,m2]/(2*m1*m2*(1-xt[cthe,tba,m1,m2]^2))*(2*Log[xt[cthe,tba,m1,m2]]*(Log[(tba[cthe]+I*eps)/(m1*m2)]+Log[Z1[cthe,tba,m1,m2]-Z2[cthe,tba,m1,m2]]+Log[Z2[cthe,tba,m1,m2]-Z1[cthe,tba,m1,m2]])+PolyLog[2,Z2[cthe,tba,m1,m2]/Z1[cthe,tba,m1,m2]]-PolyLog[2,(1-Z2[cthe,tba,m1,m2])/(1-Z1[cthe,tba,m1,m2])]+PolyLog[2,(1-Z1[cthe,tba,m1,m2])/(1-Z2[cthe,tba,m1,m2])]-PolyLog[2,Z1[cthe,tba,m1,m2]/Z2[cthe,tba,m1,m2]]),-xt[cthe,tba,m1,m2]/(m1*m2*(1-xt[cthe,tba,m1,m2]^2))*Log[xt[cthe,tba,m1,m2]]*Log[Lambda^2/(m1*m2)]+xt[cthe,tba,m1,m2]/(2*m1*m2*(1-xt[cthe,tba,m1,m2]^2))*(2*Log[xt[cthe,tba,m1,m2]]*(Log[(tba[cthe]+I*eps)/(m1*m2)]+Log[Z1[cthe,tba,m1,m2]-Z2[cthe,tba,m1,m2]]+Log[Z2[cthe,tba,m1,m2]-Z1[cthe,tba,m1,m2]])-PolyLog[2,Z2[cthe,tba,m1,m2]/Z1[cthe,tba,m1,m2]]+PolyLog[2,(1-Z2[cthe,tba,m1,m2])/(1-Z1[cthe,tba,m1,m2])]-PolyLog[2,(1-Z1[cthe,tba,m1,m2])/(1-Z2[cthe,tba,m1,m2])]+PolyLog[2,Z1[cthe,tba,m1,m2]/Z2[cthe,tba,m1,m2]])];
+(*C0[cthe_,tba_,m1_,m2_]:=-xt[cthe,tba,m1,m2]/(m1*m2*(1-xt[cthe,tba,m1,m2]^2))*Log[xt[cthe,tba,m1,m2]]*Log[Lambda^2/(m1*m2)]+xt[cthe,tba,m1,m2]/(m1*m2*(1-xt[cthe,tba,m1,m2]^2))*(Log[xt[cthe,tba,m1,m2]]*(2*Log[1+xt[cthe,tba,m1,m2]]-1/2*Log[xt[cthe,tba,m1,m2]])+2*PolyLog[2,-xt[cthe,tba,m1,m2]]+Pi^2/6);(*C0=(p1,p2,0,m1,m2)=C0(m1,tba^2,m2,0,m1,m2); p1^2=m1^2,p2^2=m2^2*)*)
+Y1[cthe_,tba_,m_]:=(tba[cthe]/m^2+Sqrt[tba[cthe]^2/m^4-4*tba[cthe]/m^2])/2;
+Y2[cthe_,tba_,m_]:=(tba[cthe]/m^2-Sqrt[tba[cthe]^2/m^4-4*tba[cthe]/m^2])/2;
+(*C01[cthe_,tba_,m_]:= 1/(m^2*(Y2[cthe,tba,m]-Y1[cthe,tba,m]))*(-2*PolyLog[2,(Y1[cthe,tba,m]-1)/Y1[cthe,tba,m]]+3*PolyLog[2,1]-PolyLog[2,Y1[cthe,tba,m]/(Y1[cthe,tba,m]-1)]-Log[m^2/-tba[cthe]]*Log[(Y2[cthe,tba,m]-1)/Y2[cthe,tba,m]]-2*PolyLog[2,1/Y2[cthe,tba,m]]-PolyLog[2,1/(1-Y2[cthe,tba,m])]);(*C0(q,p,0,0,mu); C0(q,-k,0,0,me)*)*)
+C01[cthe_,tba_,m_]:= 1/(m^2*(Y2[cthe,tba,m]-Y1[cthe,tba,m]))*(-2*PolyLog[2,(Y1[cthe,tba,m]-1)/Y1[cthe,tba,m]]+2*PolyLog[2,1]-PolyLog[2,Y1[cthe,tba,m]/(Y1[cthe,tba,m]-1)]-2*PolyLog[2,1/Y2[cthe,tba,m]]-2*Log[1/-Y2[cthe,tba,m]]*Log[(1-Y2[cthe,tba,m])/-Y2[cthe,tba,m]]+PolyLog[2,Y2[cthe,tba,m]/(Y2[cthe,tba,m]-1)]);(*other formula for C01*)
+(******************1st-order Tensor three point function*******************)
+Cm[cthe_,tba_,m1_,m2_]:=Inverse[({
+ {m1^2, (m1^2+m2^2-tba[cthe])/2},
+ {(m1^2+m2^2-tba[cthe])/2, m2^2}
+})].({
+ {1/2*B03[m1]-1/2*B0[cthe,tba,m1,m2]},
+ {1/2*B03[m2]-1/2*B0[cthe,tba,m1,m2]}
+});(*Cm(p,p',0,m1,m2); p^2=m1^2, (p')^2=m2^2, tba=(p-p')^2 & Cm[cthe,tba,m1,m2][[1,1]]=C1(p,p',0,m1,m2), Cm[cthe,tba,m1,m2][[2,1]]=C2(p,p',0,m1,m2)*) 
+Cm01[cthe_,tba_,m1_,m2_]:=Cm[cthe,tba,m1,m2][[1,1]];
+Cm02[cthe_,tba_,m1_,m2_]:=Cm[cthe,tba,m1,m2][[2,1]];
+(*-------------------------------------------------------------------------------------
+Cm2[cthe_,tba_,m_]:=Inverse[(m^2	m^2-tba[cthe]/2
+m^2-tba[cthe]/2	m^2
+
+)].(1/2*B03[m]-1/2*B0[cthe,tba,m]
+1/2*B03[m]-1/2*B0[cthe,tba,m]
+
+);(*Cm(p,p',0,m,m); p^2=(p')^2=m^2, tba=(p-p')^2<0 & Cm[cthe,tba,m][[1,1]]=C1(p,p',0,m,m), Cm[cthe,tba,m][[2,1]]=C2(p,p',0,m,m)*) 
+-------------------------------------------------------------------------------------*)
+Cm1[cthe_,tba_,m_]:=Inverse[({
+ {-tba[cthe], -(tba[cthe]/2)},
+ {tba[cthe]/2, m^2}
+})].({
+ {1/2*tba[cthe]*C01[cthe,tba,m]},
+ {1/2*B04[cthe,tba]-1/2*B03[m]}
+});(*Cm(-q,p',0,0,m);(p')^2=m^2 & Cm(-q,-k',0,0,m);(k')^2=m^2 & Cm1[cthe,tba,m][[1,1]]=C1(-q,p',0,0,m), Cm1[cthe,tba,m][[2,1]]=C2(-q,p',0,0,m)*)
+(******************2nd-order Tensor three point function*******************)
+C00[cthe_,p_,m_]:=1/2*(-B1[cthe,p,m,m]+1/2);(*C00(p1,p2,0,m,m)&p=(p1-p2)^2&p1^2=p2^2=m^2*)
+
+Cmn2[cthe_,p_,m_]:=Inverse[({
+ {m^2, m^2-p[cthe]/2},
+ {m^2-p[cthe]/2, m^2}
+})].({
+ {1/2*B0[cthe,p,m,m]-1/2*B1[cthe,p,m,m]-3*C00[cthe,p,m]+1/2},
+ {-A0[m]/(4*m^2)-1/2*B1[cthe,p,m,m]}
+});(*Cmn(p1,p2,0,m,m)&p=(p1-p2)^2& p1^2=p2^2=m^2 & Cmn2[cthe,p,m][[1,1]]=C_{22}(p1,p2,0,m,m); Cmn2[cthe,p,m][[2,1]]=C_{12}(p1,p2,0,m,m)*)
+
+Cmn1[cthe_,p_,m_]:=Inverse[({
+ {m^2, m^2-p[cthe]/2},
+ {m^2-p[cthe]/2, m^2}
+})].({
+ {1/2*B0[cthe,p,m,m]-1/2*B1[cthe,p,m,m]-3*C00[cthe,p,m]+1/2},
+ {-A0[m]/(4*m^2)-1/2*B1[cthe,p,m,m]}
+});(*Cmn(p1,p2,0,m,m) & p=(p1-p2)^2& p1^2=p2^2=m^2 & Cmn1[cthe,p,m][[1,1]]=C_{11}(p1,p2,0,m,m); Cmn1[cthe,p,m][[2,1]]=C_{12}(p1,p2,0,m,m)*)
+Cmn11[cthe_,p_,m_]:=Cmn1[cthe,p,m][[1,1]];
+Cmn12[cthe_,p_,m_]:=Cmn1[cthe,p,m][[2,1]];
+Cmn22[cthe_,p_,m_]:=Cmn2[cthe,p,m][[1,1]];
+
+
+(*******************Four point function*************************)
+
+D0[cthe_,s_,tba_,m1_,m2_]:=(-2*xt[cthe,s,m1,m2])/((1-xt[cthe,s,m1,m2]^2)*tba[cthe]*m1*m2)*Log[xt[cthe,s,m1,m2]]*Log[Lambda^2/(-tba[cthe]-I*eps)];(*D(q,-k,p,0,0,me,mmu) & D(q,-k,-p',0,0,me,mmu)& k^2=me^2;(p')^2=p^2=mmu^2*)
+(******************1st-order Tensor four point function*******************)
+Dm[cthe_,s_,tba_,m1_,m2_]:=Inverse[({
+ {-tba[cthe], -tba[cthe]/2, -tba[cthe]/2},
+ {-tba[cthe]/2, -m1^2, (s[cthe]-m1^2-m2^2)/2},
+ {tba[cthe]/2, (m1^2+m2^2-s[cthe])/2, m2^2}
+})].({
+ {1/2*tba[cthe]*D0[cthe,s,tba,m1,m2]},
+ {1/2*(C0[cthe,s,m1,m2]-C01[cthe,tba,m2])},
+ {1/2*(-C0[cthe,s,m1,m2]+C01[cthe,tba,m1])}
+});(*Dm(-q,-k',p',0,0,me,mmu) & Dm(-q,-k',-p,0,0,me,mmu) & q=(p-p'),(k')^2=me^2,p^2=(p')^2=mmu^2 & Dm[cthe,s,tba,m1,m2][[1,1]]=D1(-q,-k',p',0,0,me,mmu), Dm[cthe,s,tba,m1,m2][[2,1]]=D2(-q,-k',p',0,0,me,mmu), Dm[cthe,s,tba,m1,m2][[3,1]]=D3(-q,-k',p',0,0,me,mmu)*)
+Dm01[cthe_,s_,tba_,m1_,m2_]:=Dm[cthe,s,tba,m1,m2][[1,1]];
+Dm02[cthe_,s_,tba_,m1_,m2_]:=Dm[cthe,s,tba,m1,m2][[2,1]];
+Dm03[cthe_,s_,tba_,m1_,m2_]:=Dm[cthe,s,tba,m1,m2][[3,1]];
+(******************2nd-order Tensor four point function*******************)
+D00[cthe_,s_,tba_,m1_,m2_]:=1/2*(C0[cthe,s,m1,m2]+tba[cthe]*Dm[cthe,s,tba,m1,m2][[1,1]]);(*D00(-q,-k',p',0,0,me,mmu); q=tba=(p-p'),(k')^2=me^2, (p')^2=mmu^2*)
+
+Dmn1[cthe_,s_,tba_,m1_,m2_]:=Inverse[({
+ {tba[cthe], tba[cthe]/2, tba[cthe]/2},
+ {tba[cthe]/2, +m1^2, -((s[cthe]-m1^2-m2^2)/2)},
+ {-tba[cthe]/2, -((m1^2+m2^2-s[cthe])/2), -m2^2}
+})].({
+ {1/2*(-2*tba[cthe]*Dm[cthe,s,tba,m1,m2][[1,1]]+Cm[cthe,s,m1,m2][[1,1]]+Cm[cthe,s,m1,m2][[2,1]])},
+ {1/2*(C0[cthe,s,m1,m2]+Cm[cthe,s,m1,m2][[1,1]]+Cm[cthe,s,m1,m2][[2,1]]+Cm1[cthe,tba,m2][[1,1]])},
+ {-(1/2)*(Cm1[cthe,tba,m1][[1,1]]+Cm[cthe,s,m1,m2][[1,1]]+C0[cthe,s,m1,m2])}
+});(*Dmn(-q,-k',p',0,0,me,mmu); q=(p-p'),(k')^2=me^2,(p')^2=mmu^2 & Dmn1[cthe,s,tba,m1,m2][[1,1]]=D_{11}(-q,-k',p',0,0,me,mmu),  Dmn1[cthe,s,tba,m1,m2][[2,1]]=D_{12}(-q,-k',p',0,0,me,mmu), Dmn1[cthe,s,tba,m1,m2][[3,1]]=D_{13}(-q,-k',p',0,0,me,mmu)*)
+Dmn2[cthe_,s_,tba_,m1_,m2_]:=Inverse[({
+ {tba[cthe], tba[cthe]/2, tba[cthe]/2},
+ {tba[cthe]/2, +m1^2, -((s[cthe]-m1^2-m2^2)/2)},
+ {-tba[cthe]/2, -((m1^2+m2^2-s[cthe])/2), -m2^2}
+})].({
+ {-(1/2)*tba[cthe]*Dm[cthe,s,tba,m1,m2][[2,1]]},
+ {-(1/2)*(Cm[cthe,s,m1,m2][[1,1]]+C0[cthe,s,m1,m2]+tba[cthe]*Dm[cthe,s,tba,m1,m2][[1,1]])},
+ {1/2*(-Cm1[cthe,tba,m1][[2,1]]+Cm[cthe,s,m1,m2][[1,1]])}
+});(*Dmn(-q,-k',p',0,0,me,mmu); q=(p-p'),(k')^2=me^2,(p')^2=mmu^2 & Dmn2[cthe,s,tba,m1,m2][[1,1]]=D_{12}(-q,-k',p',0,0,me,mmu),  Dmn2[cthe,s,tba,m1,m2][[2,1]]=D_{22}(-q,-k',p',0,0,me,mmu), Dmn2[cthe,s,tba,m1,m2][[3,1]]=D_{23}(-q,-k',p',0,0,me,mmu)*)
+Dmn3[cthe_,s_,tba_,m1_,m2_]:=Inverse[({
+ {-tba[cthe], -(tba[cthe]/2), -(tba[cthe]/2)},
+ {-(tba[cthe]/2), -m1^2, (s[cthe]-m1^2-m2^2)/2},
+ {tba[cthe]/2, (m1^2+m2^2-s[cthe])/2, m2^2}
+})].({
+ {1/2*tba[cthe]*Dm[cthe,s,tba,m1,m2][[3,1]]},
+ {1/2*(-Cm1[cthe,tba,m2][[2,1]]+Cm[cthe,s,m1,m2][[2,1]])},
+ {-(1/2)*(Cm[cthe,s,m1,m2][[2,1]]+C0[cthe,s,m1,m2]+tba[cthe]*Dm[cthe,s,tba,m1,m2][[1,1]])}
+});(*Dmn(-q,-k',p',0,0,me,mmu); q=(p-p'),(k')^2=me^2,(p')^2=mmu^2 & Dmn3[cthe,s,tba,m1,m2][[1,1]]=D_{13}(-q,-k',p',0,0,me,mmu),  Dmn3[cthe,s,tba,m1,m2][[2,1]]=D_{23}(-q,-k',p',0,0,me,mmu), Dmn3[cthe,s,tba,m1,m2][[3,1]]=D_{33}(-q,-k',p',0,0,me,mmu)*)
+Dmn11[cthe_,s_,tba_,m1_,m2_]:=Dmn1[cthe,s,tba,m1,m2][[1,1]];
+Dmn12[cthe_,s_,tba_,m1_,m2_]:=Dmn1[cthe,s,tba,m1,m2][[2,1]];
+Dmn13[cthe_,s_,tba_,m1_,m2_]:=Dmn1[cthe,s,tba,m1,m2][[3,1]];
+Dmn22[cthe_,s_,tba_,m1_,m2_]:=Dmn2[cthe,s,tba,m1,m2][[2,1]];
+Dmn23[cthe_,s_,tba_,m1_,m2_]:=Dmn2[cthe,s,tba,m1,m2][[3,1]];
+Dmn33[cthe_,s_,tba_,m1_,m2_]:=Dmn3[cthe,s,tba,m1,m2][[3,1]];

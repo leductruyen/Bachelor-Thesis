@@ -1,0 +1,40 @@
+NLOMS[cthe_] := t^(-2)*e^6*pi^(-2) * ( mmu^4 + 2*mme^2*mmu^2 + mme^4 - 1/2*s^2
+          + 1/2*C0[cthe,t,mme,mme]*s^2*mme^2 - 2*C00[cthe,t,mme]*mmu^4
+          - 4*C00[cthe,t,mme]*mme^2*mmu^2 - 2*C00[cthe,t,mme]*mme^4 + 
+         C00[cthe,t,mme]*s^2 - Cmn11[cthe,t,mme]*mme^2*mmu^4 - 2*Cmn11[
+         cthe,t,mme]*mme^4*mmu^2 - Cmn11[cthe,t,mme]*mme^6 - 2*Cmn12[
+         cthe,t,mme]*mme^2*mmu^4 - 4*Cmn12[cthe,t,mme]*mme^4*mmu^2 - 2*
+         Cmn12[cthe,t,mme]*mme^6 - Cmn22[cthe,t,mme]*mme^2*mmu^4 - 2*
+         Cmn22[cthe,t,mme]*mme^4*mmu^2 - Cmn22[cthe,t,mme]*mme^6 - 2*
+         Cm01[cthe,t,mme,mme]*mme^2*mmu^4 - 4*Cm01[cthe,t,mme,mme]*
+         mme^4*mmu^2 - 2*Cm01[cthe,t,mme,mme]*mme^6 + Cm01[cthe,t,mme,
+         mme]*s^2*mme^2 - 2*Cm02[cthe,t,mme,mme]*mme^2*mmu^4 - 4*Cm02[
+         cthe,t,mme,mme]*mme^4*mmu^2 - 2*Cm02[cthe,t,mme,mme]*mme^6 + 
+         Cm02[cthe,t,mme,mme]*s^2*mme^2 )+ t^(-2)*u*e^6*pi^(-2) * (  - 2*C0[cthe,t,mme,mme]*mme^2*mmu^2
+          - 2*C0[cthe,t,mme,mme]*mme^4 + 2*Cmn11[cthe,t,mme]*mme^2*
+         mmu^2 + 2*Cmn11[cthe,t,mme]*mme^4 + 4*Cmn12[cthe,t,mme]*mme^2*
+         mmu^2 + 4*Cmn12[cthe,t,mme]*mme^4 + 2*Cmn22[cthe,t,mme]*mme^2*
+         mmu^2 + 2*Cmn22[cthe,t,mme]*mme^4 )+ t^(-2)*u^2*e^6*pi^(-2) * (  - 1/2 + 3/2*C0[cthe,t,mme,mme]*
+         mme^2 + C00[cthe,t,mme] - Cmn11[cthe,t,mme]*mme^2 - 2*Cmn12[
+         cthe,t,mme]*mme^2 - Cmn22[cthe,t,mme]*mme^2 + Cm01[cthe,t,mme,
+         mme]*mme^2 + Cm02[cthe,t,mme,mme]*mme^2 )+ t^(-1)*e^6*pi^(-2) * (  - 2*mmu^2 - 2*mme^2 + 2*C0[cthe,t,mme,
+         mme]*mme^2*mmu^2 + 2*C0[cthe,t,mme,mme]*mme^4 - 1/4*C0[cthe,t,
+         mme,mme]*s^2 + 4*C00[cthe,t,mme]*mmu^2 + 4*C00[cthe,t,mme]*
+         mme^2 + 2*Cmn11[cthe,t,mme]*mme^2*mmu^2 + Cmn12[cthe,t,mme]*
+         mmu^4 + 6*Cmn12[cthe,t,mme]*mme^2*mmu^2 + Cmn12[cthe,t,mme]*
+         mme^4 - 1/2*Cmn12[cthe,t,mme]*s^2 + 2*Cmn22[cthe,t,mme]*mme^2*
+         mmu^2 + 6*Cm01[cthe,t,mme,mme]*mme^2*mmu^2 + 4*Cm01[cthe,t,mme
+         ,mme]*mme^4 - 1/4*Cm01[cthe,t,mme,mme]*s^2 + Cm02[cthe,t,mme,
+         mme]*mmu^4 + 8*Cm02[cthe,t,mme,mme]*mme^2*mmu^2 + 5*Cm02[cthe,
+         t,mme,mme]*mme^4 - 1/2*Cm02[cthe,t,mme,mme]*s^2 )+ t^(-1)*u*e^6*pi^(-2) * ( C0[cthe,t,mme,mme]*mmu^2 + 2*C0[cthe,
+         t,mme,mme]*mme^2 - Cmn11[cthe,t,mme]*mme^2 - 2*Cmn12[cthe,t,
+         mme]*mme^2 - Cmn22[cthe,t,mme]*mme^2 + Cm01[cthe,t,mme,mme]*
+         mmu^2 + Cm01[cthe,t,mme,mme]*mme^2 )+ t^(-1)*u^2*e^6*pi^(-2) * (  - 3/4*C0[cthe,t,mme,mme] - 1/2*
+         Cmn12[cthe,t,mme] - 3/4*Cm01[cthe,t,mme,mme] - 1/2*Cm02[cthe,t
+         ,mme,mme] )+ e^6*pi^(-2) * (  - C0[cthe,t,mme,mme]*mmu^2 - 1/2*C0[cthe,t,
+         mme,mme]*mme^2 + 1/2*Cmn11[cthe,t,mme]*mme^2 - 2*Cmn12[cthe,t,
+         mme]*mmu^2 - Cmn12[cthe,t,mme]*mme^2 + 1/2*Cmn22[cthe,t,mme]*
+         mme^2 - Cm01[cthe,t,mme,mme]*mmu^2 - 2*Cm02[cthe,t,mme,mme]*
+         mmu^2 - Cm02[cthe,t,mme,mme]*mme^2 )+ u*e^6*pi^(-2) * (  - 1/2*C0[cthe,t,mme,mme] - 1/2*Cm01[cthe,t,
+         mme,mme] )+ t*e^6*pi^(-2) * (  - 1/4*C0[cthe,t,mme,mme] - 1/4*Cm01[cthe,t,
+         mme,mme] );
